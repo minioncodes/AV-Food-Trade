@@ -21,7 +21,7 @@ export default function ProductsList({ products }: { products: any[] }) {
     {products?.map((product) => (
       <div
         key={product._id}
-        className="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+        className=" rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
       >
   
         <div className="relative w-full h-64 bg-gray-50">
