@@ -5,7 +5,7 @@ import { NextResponse, NextRequest } from "next/server";
 import { cookies } from "next/headers";
 import connectDB from "@/lib/mongo";
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
     try {
         await connectDB();
         const body = await req.json();

@@ -6,10 +6,29 @@ import { fetchUser } from "@/redux/slices/user-slice/user-slice";
 import { signOut } from "next-auth/react";
 import { FiMail, FiLogOut, FiEdit } from "react-icons/fi";
 
+// Define proper types
+interface Address {
+  street?: string;
+  area?: string;
+  city?: string;
+  state?: string;
+  pincode?: string;
+}
+
+interface UserProfile {
+  name?: string;
+  email?: string;
+  phoneNumber?: string;
+  dateOfBirth?: string;
+  gender?: string;
+  address?: Address;
+}
+
 export default function Profile() {
   const dispatch = useAppDispatch();
   const { user, loading, err } = useAppSelector((state) => state.user);
-  const [formData, setFormData] = useState<any>(null);
+
+  const [formData, setFormData] = useState<UserProfile | null>(null);
   const [editing, setEditing] = useState(false);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
@@ -41,14 +60,14 @@ export default function Profile() {
     return <p className="text-red-500 text-center mt-4 text-lg">{err}</p>;
   }
 
-  const handleChange = (field: string, value: string) => {
-    setFormData((prev: any) => ({ ...prev, [field]: value }));
+  const handleChange = <K extends keyof UserProfile>(field: K, value: UserProfile[K]) => {
+    setFormData((prev) => (prev ? { ...prev, [field]: value } : { [field]: value }));
   };
 
-  const handleAddressChange = (field: string, value: string) => {
-    setFormData((prev: any) => ({
-      ...prev,
-      address: { ...prev.address, [field]: value },
+  const handleAddressChange = <K extends keyof Address>(field: K, value: string) => {
+    setFormData((prev) => ({
+      ...prev!,
+      address: { ...prev!.address, [field]: value },
     }));
   };
 
@@ -73,8 +92,9 @@ export default function Profile() {
       setMessage("✅ Profile updated successfully!");
       setEditing(false);
       dispatch(fetchUser());
-    } catch (err: any) {
-      setMessage(`❌ ${err.message}`);
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : "Unknown error";
+      setMessage(`❌ ${errorMessage}`);
     } finally {
       setSaving(false);
     }
@@ -203,4 +223,4 @@ export default function Profile() {
     </div>
   );
 }
-  
+
