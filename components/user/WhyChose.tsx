@@ -37,7 +37,7 @@ export default function WhyChooseUsSection() {
         }
         .animate-marquee {
           display: flex;
-          animation: marquee 20s linear infinite;
+          animation: marquee 5s linear infinite;
         }
       `}</style>
     </section>

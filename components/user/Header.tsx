@@ -73,7 +73,7 @@ const Header = () => {
               />
             </div>
 
-            {/* Cart */}
+       
             <Link
               href="/user/cart"
               className="relative hover:scale-105 transition-transform"
@@ -86,7 +86,6 @@ const Header = () => {
               )}
             </Link>
 
-            {/* User Menu */}
             {session ? (
               <div className="relative" ref={menuRef}>
                 <button

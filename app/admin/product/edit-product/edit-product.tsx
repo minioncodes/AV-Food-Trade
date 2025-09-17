@@ -1,4 +1,4 @@
-import EditProduct from "@/components/admin/EditProduct";
+// import EditProduct from "@/components/admin/EditProduct";
 
 export default function Page() {
     return (

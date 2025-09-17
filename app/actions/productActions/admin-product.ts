@@ -1,12 +1,12 @@
 import ProductSchema from "@/models/admin/ProductSchema";
 import connectDB from "@/lib/mongo";
-import { IProduct } from "@/models/admin/ProductSchema";
+// import { IProduct } from "@/models/admin/ProductSchema";
 import { revalidatePath } from "next/cache";
 
 export interface EditProductInterface {
     id?: string;
     slug?: string;
-    updates: Record<string, any>;
+    updates: Record<string, unknown>;
 }
 export async function editProduct({ id, slug, updates }: EditProductInterface) {
     try {
@@ -22,8 +22,10 @@ export async function editProduct({ id, slug, updates }: EditProductInterface) {
         }
         revalidatePath("/products");
         revalidatePath(`/products/${id || slug}`);
-    } catch (e: any) {
-        console.log(e.message);
+    } catch (e: unknown) {
+       
+            console.log(e);
+        
         throw new Error("there is internal error on updating the product")
     }
 }

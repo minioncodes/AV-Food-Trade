@@ -5,6 +5,7 @@ console.log("mongo db uri = ",MONGODB_URI);
 if (!MONGODB_URI) {
   throw new Error("please define the MONGO_URI environment variable in .env.local");
 }
+
 let cached = (global as any).mongoose;
 if (!cached) {
   cached = (global as any).mongoose = { conn: null, promise: null };

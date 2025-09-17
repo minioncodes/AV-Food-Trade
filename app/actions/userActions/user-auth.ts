@@ -3,7 +3,7 @@ import { IUserPlain } from "@/types/user_types";
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 import connectDB from "@/lib/mongo"
-import User, { IUser } from "@/models/User"
+import User from "@/models/User"
 export async function getUserId() {
     const session = await getServerSession(authOptions);
     if (!session?.user) {
@@ -24,7 +24,8 @@ export async function getCompleteUser(): Promise<IUserPlain | null> {
         const plainComplteUser: IUserPlain = 
         completUser.toObject({ getters: true }) as IUserPlain;
         return plainComplteUser
-    } catch (e: any) {
+    } catch (e: unknown) {
+        console.log(e);
         return null;
     }
 }

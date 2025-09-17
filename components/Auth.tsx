@@ -10,7 +10,7 @@ export default function Auth() {
   const { data: session } = useSession();
   const router = useRouter();
 
-  // If logged in, redirect to home
+
   useEffect(() => {
     if (session) {
       router.push("/");
@@ -23,7 +23,7 @@ export default function Auth() {
         Welcome Back
       </h1>
 
-      {/* Sign In Buttons */}
+
       <div className="flex flex-col space-y-4 w-full max-w-xs">
         <button
           onClick={() => signIn("google", { callbackUrl: "/" })}

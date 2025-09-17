@@ -97,7 +97,7 @@ export default function TestimonialsSection() {
           100% { transform: translateX(-50%); }
         }
         .animate-marquee {
-          animation: marquee 10s linear infinite;
+          animation: marquee 5s linear infinite;
         }
         .line-clamp-2 {
           display: -webkit-box;

@@ -5,8 +5,9 @@ import { addToCart } from "@/redux/slices/user-slice/cartSlice";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 import CheckoutButton from "../checkout/CheckoutButton";
+import { IProduct } from "@/models/admin/ProductSchema";
 
-export default function ProductsList({ products }: { products: any[] }) {
+export default function ProductsList({ products }: { products: IProduct[] }) {
   const dispatch = useDispatch();
 
   return (
@@ -20,7 +21,7 @@ export default function ProductsList({ products }: { products: any[] }) {
   <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
     {products?.map((product) => (
       <div
-        key={product._id}
+        key={String(product._id)}
         className=" rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
       >
   
