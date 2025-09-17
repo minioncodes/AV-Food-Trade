@@ -16,6 +16,7 @@ import {
   FiPackage,
   FiLogOut,
 } from "react-icons/fi";
+import Image from "next/image";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -43,7 +44,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
 
 <span className="flex items-center">
-  <img
+  <Image
     src="/av-trade.png"
     alt="AV Logo"
     width={45}

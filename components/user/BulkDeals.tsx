@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function BulkDealsSection() {
   const deals = [
     { name: "Almonds Bulk Pack", price: "₹400/kg", img: "https://media.istockphoto.com/id/171292794/photo/almond.webp?a=1&b=1&s=612x612&w=0&k=20&c=Gd8KgXRN1hw4RZNLgdBqu2l0HrAfqjZJdOnAXaPf2rA=" },
@@ -33,7 +35,7 @@ export default function BulkDealsSection() {
               <span className="absolute top-3 left-3 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
                 Best Deal
               </span>
-              <img
+              <Image
                 src={d.img}
                 alt={d.name}
                 className="w-full h-64 object-cover"

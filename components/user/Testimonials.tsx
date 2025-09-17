@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 export default function TestimonialsSection() {
   const testimonials = [
@@ -61,9 +62,11 @@ export default function TestimonialsSection() {
               key={i} 
               className="flex flex-col items-center text-center min-w-[500px] px-8"
             >
-              <img
+             <Image
                 src={t.img}
                 alt={t.name}
+                width={96}
+                height={96}
                 className="w-24 h-24 rounded-full object-cover mb-6 shadow-lg"
               />
              
