@@ -42,31 +42,34 @@ const Header = () => {
     <header className="sticky top-0 z-50 backdrop-blur-lg bg-white/80 border-b border-gray-200 shadow-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-
-<span className="flex items-center">
-  <Link href="/" className="flex items-center">
-  <Image
-    src="/av-trade.png"
-    alt="AV Logo"
-    width={45}
-    height={45}
-    className="mr-3 object-contain"
-  />
-  </Link>
-</span>
-
+          <span className="flex items-center">
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/av-trade.png"
+                alt="AV Logo"
+                width={45}
+                height={45}
+                className="mr-3 object-contain"
+              />
+            </Link>
+          </span>
 
           <nav className="hidden md:flex space-x-10 text-gray-800 font-semibold text-sm tracking-wide">
-            <Link href="/user/catelog" className="hover:text-green-600 transition-colors">
+            <Link
+              href="/user/catelog"
+              className="hover:text-green-600 transition-colors"
+            >
               SHOP
             </Link>
-            <Link href="/user/contact" className="hover:text-green-600 transition-colors">
+            <Link
+              href="/user/contact"
+              className="hover:text-green-600 transition-colors"
+            >
               CONTACT
             </Link>
           </nav>
 
           <div className="flex items-center space-x-4">
-
             <div className="hidden sm:flex items-center bg-gray-100 px-4 py-2 rounded-full shadow-sm transition focus-within:ring-2 focus-within:ring-green-500">
               <FiSearch size={18} className="text-gray-500" />
               <input
@@ -75,9 +78,6 @@ const Header = () => {
                 className="bg-transparent border-none focus:ring-0 text-sm ml-2 outline-none placeholder-gray-500 w-40"
               />
             </div>
-
-       
-         
 
             {session ? (
               <div className="relative" ref={menuRef}>
@@ -135,27 +135,28 @@ const Header = () => {
                   Sign In
                 </Link> */}
                 <Link
-                  href="#"
+                   href="https://wa.me/7880561870?text=Hi%20I%E2%80%99d%20like%20to%20know%20more%20about%20AV%20Trade%20products" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-5 py-2 text-sm font-medium text-white bg-green-600 rounded-full shadow hover:bg-green-700 transition"
                 >
                   Get In Touch
                 </Link>
 
-                   <Link
-              href="/user/cart"
-              className="relative hover:scale-105 transition-transform"
-            >
-              <FiShoppingCart size={26} className="text-gray-800" />
-              {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-green-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center shadow">
-                  {cartCount}
-                </span>
-              )}
-            </Link>
+                <Link
+                  href="/user/cart"
+                  className="relative hover:scale-105 transition-transform"
+                >
+                  <FiShoppingCart size={26} className="text-gray-800" />
+                  {cartCount > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-green-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center shadow">
+                      {cartCount}
+                    </span>
+                  )}
+                </Link>
               </div>
             )}
 
-       
             <button
               className="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100"
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -217,19 +218,21 @@ const Header = () => {
               </>
             ) : (
               <>
-                <Link
+                {/* <Link
                   href="/user/signin"
                   onClick={() => setMobileOpen(false)}
                   className="px-4 py-2 text-center text-sm font-medium text-gray-800 border border-gray-300 rounded-md hover:bg-gray-100 transition"
                 >
                   Sign In
-                </Link>
+                </Link> */}
                 <Link
-                  href="#"
+                  href="https://wa.me/7880561870?text=Hi%20I%E2%80%99d%20like%20to%20know%20more%20about%20AV%20Trade%20products" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
                   className="px-4 py-2 text-center text-sm font-medium text-white bg-green-600 rounded-md shadow hover:bg-green-700 transition"
                 >
-                  Sign Up
+                  Get In Touch
                 </Link>
               </>
             )}
