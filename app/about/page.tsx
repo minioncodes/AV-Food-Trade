@@ -1,13 +1,10 @@
 "use client";
 
-import Footer from "@/components/user/Footer";
-import Header from "@/components/user/Header";
 import React from "react";
 
 export default function AboutPage() {
   return (
     <>
-<Header />
     <div className="bg-gradient-to-b from-amber-50 via-white to-green-50 min-h-screen py-12">
       <div className="max-w-5xl mx-auto px-6 lg:px-12">
         {/* Heading */}
@@ -138,7 +135,6 @@ export default function AboutPage() {
         </section>
       </div>
     </div>
-    <Footer />
     </>
   );
 }

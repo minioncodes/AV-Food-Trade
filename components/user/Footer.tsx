@@ -14,20 +14,20 @@ export default function Footer() {
             Premium groceries and dry fruits delivered fresh to your door.
           </p>
           <div className="flex gap-4 mt-6">
-            <a href="#" className="hover:text-white"><FaFacebook size={22} /></a>
-            <a href="#" className="hover:text-white"><FaTwitter size={22} /></a>
-            <a href="#" className="hover:text-white"><FaInstagram size={22} /></a>
-            <a href="#" className="hover:text-white"><FaLinkedin size={22} /></a>
+            <Link href="#" className="hover:text-white"><FaFacebook size={22} /></Link>
+            <Link href="#" className="hover:text-white"><FaTwitter size={22} /></Link>
+            <Link href="#" className="hover:text-white"><FaInstagram size={22} /></Link>
+            <Link href="#" className="hover:text-white"><FaLinkedin size={22} /></Link>
           </div>
         </div>
 
         <div>
           <h3 className="text-xl font-semibold text-white mb-4">Quick Links</h3>
           <ul className="space-y-2 text-sm">
-            <li><Link href="/user/about" className="hover:text-white">About Us</Link></li>
-            <li><Link href="/user/contact" className="hover:text-white">Contact</Link></li>
-            <li><Link href="/user/privacy" className="hover:text-white">Privacy Policy</Link></li>
-            <li><Link href="/user/terms" className="hover:text-white">Terms & Conditions</Link></li>
+            <li><Link href="/about" className="hover:text-white">About Us</Link></li>
+            <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
+            <li><Link href="/privacy" className="hover:text-white">Privacy Policy</Link></li>
+            <li><Link href="/terms" className="hover:text-white">Terms & Conditions</Link></li>
           </ul>
         </div>
 

@@ -4,8 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/redux/store";
 import { addToCart, removeFromCart, clearCart } from "@/redux/slices/user-slice/cartSlice";
 import Image from "next/image";
-import Header from "@/components/user/Header";
-import Footer from "@/components/user/Footer";
 
 export default function CartPage() {
   const dispatch = useDispatch();
@@ -43,7 +41,6 @@ export default function CartPage() {
 
   return (
     <>
-      <Header />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
         <h1 className="text-4xl font-extrabold text-gray-900 mb-8">Your Cart</h1>
 
@@ -114,7 +111,6 @@ export default function CartPage() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

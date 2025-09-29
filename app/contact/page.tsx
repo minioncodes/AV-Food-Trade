@@ -1,12 +1,9 @@
 "use client";
 
-import Header from "@/components/user/Header";
-import Footer from "@/components/user/Footer";
 
 export default function ContactPage() {
   return (
     <>
-      <Header />
       <section className="py-20 bg-gradient-to-b from-white to-green-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -46,7 +43,7 @@ export default function ContactPage() {
                 className="space-y-6"
               >
                 {/* Honeypot field (spam protection) */}
-                <input type="text" name="_honey" className="hidden" />
+                <input title="honeypot" type="text" name="_honey" className="hidden" />
 
                 {/* Disable Captcha */}
                 <input type="hidden" name="_captcha" value="false" />
@@ -105,7 +102,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }
