@@ -179,8 +179,8 @@ export default function Profile() {
               key={field}
               type="text"
               placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-              value={formData.address?.[field] || ""}
-              onChange={(e) => handleAddressChange(field, e.target.value)}
+              // value={formData.address?.[field] || ""}
+              // onChange={(e) => handleAddressChange(field, e.target.value)}
               readOnly={!editing}
               className={`w-full border rounded-lg p-3 text-lg ${
                 editing ? "bg-white" : "bg-gray-100 cursor-not-allowed"

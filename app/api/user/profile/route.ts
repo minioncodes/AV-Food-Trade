@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../../auth/[...nextauth]/route";
 import connectDB from "@/lib/mongo";
 import User from "@/models/User";
 
@@ -11,7 +10,7 @@ export async function PATCH(req: NextRequest) {
     await connectDB();
 
     // Get logged-in user from session
-    const session = await getServerSession(authOptions);
+    const session = await getServerSession();
     if (!session?.user?.email) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }

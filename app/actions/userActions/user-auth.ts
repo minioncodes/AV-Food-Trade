@@ -1,11 +1,11 @@
 "use server";
 import { IUserPlain } from "@/types/user_types";
 import { getServerSession } from "next-auth"
-import { authOptions } from "@/app/api/auth/[...nextauth]/route"
+
 import connectDB from "@/lib/mongo"
 import User from "@/models/User"
 export async function getUserId() {
-    const session = await getServerSession(authOptions);
+    const session = await getServerSession();
     if (!session?.user) {
         throw new Error("Not authenticated");
     }
