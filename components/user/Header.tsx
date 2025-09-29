@@ -44,6 +44,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
 
 <span className="flex items-center">
+  <Link href="/" className="flex items-center">
   <Image
     src="/av-trade.png"
     alt="AV Logo"
@@ -51,14 +52,15 @@ const Header = () => {
     height={45}
     className="mr-3 object-contain"
   />
+  </Link>
 </span>
 
 
           <nav className="hidden md:flex space-x-10 text-gray-800 font-semibold text-sm tracking-wide">
-            <Link href="#" className="hover:text-green-600 transition-colors">
+            <Link href="/user/catelog" className="hover:text-green-600 transition-colors">
               SHOP
             </Link>
-            <Link href="#" className="hover:text-green-600 transition-colors">
+            <Link href="/user/contact" className="hover:text-green-600 transition-colors">
               CONTACT
             </Link>
           </nav>
@@ -75,17 +77,7 @@ const Header = () => {
             </div>
 
        
-            <Link
-              href="/user/cart"
-              className="relative hover:scale-105 transition-transform"
-            >
-              <FiShoppingCart size={26} className="text-gray-800" />
-              {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-green-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center shadow">
-                  {cartCount}
-                </span>
-              )}
-            </Link>
+         
 
             {session ? (
               <div className="relative" ref={menuRef}>
@@ -136,22 +128,34 @@ const Header = () => {
               </div>
             ) : (
               <div className="hidden md:flex space-x-3">
-                <Link
+                {/* <Link
                   href="/user/signin"
                   className="px-5 py-2 text-sm font-medium text-gray-800 border border-gray-300 rounded-full hover:bg-gray-100 transition shadow-sm"
                 >
                   Sign In
-                </Link>
+                </Link> */}
                 <Link
                   href="#"
                   className="px-5 py-2 text-sm font-medium text-white bg-green-600 rounded-full shadow hover:bg-green-700 transition"
                 >
-                  Sign Up
+                  Get In Touch
                 </Link>
+
+                   <Link
+              href="/user/cart"
+              className="relative hover:scale-105 transition-transform"
+            >
+              <FiShoppingCart size={26} className="text-gray-800" />
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-green-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center shadow">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
               </div>
             )}
 
-            {/* Mobile Menu Button */}
+       
             <button
               className="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100"
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -175,7 +179,7 @@ const Header = () => {
               SHOP
             </Link>
             <Link
-              href="#"
+              href="/user/contact"
               onClick={() => setMobileOpen(false)}
               className="hover:text-green-600 transition-colors"
             >

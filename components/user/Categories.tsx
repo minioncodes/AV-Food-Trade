@@ -14,13 +14,22 @@ export default function ShopByCategorySection() {
   return (
     <section className="py-20">
       <div className="max-w-8xl mx-auto px-9  lg:px-8 text-center">
-        {/* <h2 className="text-4xl font-bold text-green-900 mb-12 drop-shadow-sm">Shop by Category</h2> */}
+        {/* <h2 className="text-4xl font-bold text-green-900 mb-12 drop-shadow-sm">Shop by Category</h2> */}  
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
           {categories.map((cat, i) => (
             <div key={i} className="relative cursor-pointer rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition transform">
-              <Image src={cat.img} alt={cat.name} className="w-full h-40 sm:h-48 lg:h-96 object-cover" />
+    <Image
+  src={cat.img}
+  alt={cat.name}
+  width={500}
+  height={500}
+  className="w-full h-40 sm:h-48 lg:h-96 object-cover"
+/>
+
+
+             
               <div className="absolute inset-0  flex items-center justify-center">
-                <h3 className="text-white shadow-2xl shadow-amber-100 text-lg sm:text-3xl font-semibold drop-shadow-lg">{cat.name}</h3>
+                <h3 className="text-white shadow-2xl text-lg sm:text-3xl font-semibold drop-shadow-lg">{cat.name}</h3>
               </div>
             </div>
           ))}

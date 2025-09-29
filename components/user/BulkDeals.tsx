@@ -38,7 +38,12 @@ export default function BulkDealsSection() {
               <Image
                 src={d.img}
                 alt={d.name}
-                className="w-full h-64 object-cover"
+                width={400}
+                height={300}
+                quality={100}
+
+
+                className="w-full "
               />
               <div className="p-6">
                 <h3 className="text-xl font-bold text-green-900">{d.name}</h3>
