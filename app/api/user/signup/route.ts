@@ -23,8 +23,6 @@ export async function POST(req: NextRequest) {
     const body: SignUpBody = await req.json();
     const { name, email, password, location, phoneNumber, dateOfBirth, address, gender } = body;
 
-    const cookieStore = cookies();
-
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return NextResponse.json({ msg: "User already exists" }, { status: 400 });
@@ -56,7 +54,8 @@ export async function POST(req: NextRequest) {
       { expiresIn: "1h" }
     );
 
-    (await cookieStore).set("token", token, {
+   
+    (await cookies()).set("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV !== "development",
       sameSite: "lax",
@@ -65,7 +64,7 @@ export async function POST(req: NextRequest) {
     });
 
     const userObj = newUser.toObject();
-    delete userObj.password;
+    delete (userObj as any).password;
 
     return NextResponse.json({ user: userObj, token }, { status: 201 });
   } catch (e: unknown) {
