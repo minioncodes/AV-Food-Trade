@@ -6,8 +6,6 @@ import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 import CheckoutButton from "@/components/checkout/CheckoutButton";
 import { dummyProducts } from "@/app/data/DummyProducts";
-import Header from "@/components/user/Header";
-import Footer from "@/components/user/Footer";
 
 
 
@@ -18,7 +16,6 @@ export default function ProductsList() {
 
   return (
     <>
-    <Header />
     
     <div className="p-6 max-w-7xl mx-auto mt-10">
       <h1 className="text-4xl font-extrabold text-green-600 mb-10 text-center">
@@ -127,7 +124,6 @@ export default function ProductsList() {
       </div>
     </div>
 
-    <Footer />
     </>
   );
 }

@@ -16,7 +16,6 @@ import ProductsList from "@/components/user/Products";
 export default function Home() {
   return (
     <>
-      <Header />
       <section className="bg-gradient-to-br from-amber-50 via-white to-green-50">
 
         <RevealOnScroll direction="right" delay={0.3}>
@@ -44,8 +43,6 @@ export default function Home() {
           <TestimonialsSection />
         </RevealOnScroll>
       </section>
-
-      <Footer />
     </>
   );
 }

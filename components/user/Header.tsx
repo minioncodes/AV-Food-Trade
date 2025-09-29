@@ -58,13 +58,13 @@ const Header = () => {
           {/* Desktop Nav */}
           <nav className="hidden md:flex space-x-10 text-gray-800 font-semibold text-sm tracking-wide">
             <Link
-              href="/user/catelog"
+              href="/catelog"
               className="hover:text-green-600 transition-colors"
             >
               SHOP
             </Link>
             <Link
-              href="/user/contact"
+              href="/contact"
               className="hover:text-green-600 transition-colors"
             >
               CONTACT
@@ -85,7 +85,7 @@ const Header = () => {
 
             {/* ✅ Cart always visible */}
             <Link
-              href="/user/cart"
+              href="/cart"
               className="relative hover:scale-105 transition-transform"
             >
               <FiShoppingCart size={26} className="text-gray-800" />
@@ -115,7 +115,7 @@ const Header = () => {
                     <ul className="flex flex-col py-2 text-gray-700 text-sm font-medium">
                       <li>
                         <Link
-                          href={`/user/profile/${session.user?.id}`}
+                          href={`/profile/${session.user?.id}`}
                           className="flex items-center space-x-2 px-4 py-2 hover:bg-gray-100 transition"
                         >
                           <FiUserCheck size={16} />
@@ -174,14 +174,14 @@ const Header = () => {
         <div className="md:hidden bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-200 animate-fade-in">
           <nav className="flex flex-col space-y-3 px-4 py-4 text-gray-800 font-semibold">
             <Link
-              href="/user/catelog"
+              href="/catelog"
               onClick={() => setMobileOpen(false)}
               className="hover:text-green-600 transition-colors"
             >
               SHOP
             </Link>
             <Link
-              href="/user/contact"
+              href="/contact"
               onClick={() => setMobileOpen(false)}
               className="hover:text-green-600 transition-colors"
             >
@@ -191,7 +191,7 @@ const Header = () => {
             {session ? (
               <>
                 <Link
-                  href={`/user/profile/${session.user?.id}`}
+                  href={`/profile/${session.user?.id}`}
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center space-x-2 px-4 py-2 text-sm font-medium hover:text-green-600 transition"
                 >
