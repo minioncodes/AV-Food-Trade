@@ -28,10 +28,10 @@ export default function ProductsList() {
             key={product._id}
             className="rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
           >
-            {/* Image */}
+          
             <div className="relative w-full h-64 bg-gray-50">
               <Image
-                src={product.images?.[0] || "/placeholder.png"}
+                src={product.images?.[0] }
                 alt={product.name}
                 fill
                 className="object-cover"
@@ -43,7 +43,6 @@ export default function ProductsList() {
               )}
             </div>
 
-            {/* Info */}
             <div className="p-5 flex flex-col flex-grow space-y-3">
               <h2 className="text-lg font-semibold text-gray-900 truncate">
                 {product.name}
@@ -52,7 +51,6 @@ export default function ProductsList() {
                 {product.description}
               </p>
 
-              {/* Ratings */}
               <div className="flex items-center space-x-1">
                 {[...Array(5)].map((_, i) => (
                   <FaStar
@@ -70,7 +68,7 @@ export default function ProductsList() {
                 </span>
               </div>
 
-              {/* Price & Stock */}
+           
               <div className="flex justify-between items-center">
                 <span className="text-xl font-bold text-green-600">
                   ₹{product.price}
@@ -88,7 +86,7 @@ export default function ProductsList() {
                 <div className="text-xs text-gray-500">{product.brand}</div>
               )}
 
-              {/* Buttons */}
+             
               <div className="grid grid-cols-2 gap-2 mt-auto pt-1">
                 <button
                   disabled={product.stock === 0}

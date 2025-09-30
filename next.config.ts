@@ -2,13 +2,17 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   typedRoutes: true,
-   images: {
+  images: {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**", 
+        hostname: "images.unsplash.com",
+      },   
+          {
+        protocol: "https",
+        hostname: "media.istockphoto.com",
       },
-    ],     
+    ],
   },
 };
 
