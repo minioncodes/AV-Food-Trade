@@ -7,7 +7,6 @@ import { FaStar } from "react-icons/fa";
 import CheckoutButton from "../checkout/CheckoutButton";
 import { useRouter } from "next/navigation";
 
-// Import dummy products
 import { dummyProducts } from "@/app/data/DummyProducts";
 
 export default function ProductsList() {
