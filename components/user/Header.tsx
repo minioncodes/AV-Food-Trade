@@ -12,7 +12,6 @@ import {
   FiSearch,
   FiUser,
   FiChevronDown,
-  FiUserCheck,
   FiPackage,
   FiLogOut,
 } from "react-icons/fi";
@@ -111,13 +110,13 @@ const Header = () => {
                   <div className="absolute right-0 mt-3 w-52 bg-white border border-gray-200 rounded-xl shadow-lg z-20">
                     <ul className="flex flex-col py-2 text-gray-700 text-sm font-medium">
                       <li>
-                        <Link
+                        {/* <Link
                           href={`/profile/${session.user?.id}`}
                           className="flex items-center space-x-2 px-4 py-2 hover:bg-gray-100 transition"
                         >
                           <FiUserCheck size={16} />
                           <span>Profile</span>
-                        </Link>
+                        </Link> */}
                       </li>
                       <li>
                         <Link
@@ -199,14 +198,14 @@ const Header = () => {
 
             {session ? (
               <>
-                <Link
-                  href={`/profile/${session.user?.id}`}
+                {/* <Link
+                  // href={`/profile/${session.user?.id}`}
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center space-x-2 px-4 py-2 text-sm font-medium hover:text-green-600 transition"
-                >
-                  <FiUserCheck size={18} />
+                > */}
+                  {/* <FiUserCheck size={18} />
                   <span>Profile</span>
-                </Link>
+                </Link> */}
                 <Link
                   href="#"
                   onClick={() => setMobileOpen(false)}
