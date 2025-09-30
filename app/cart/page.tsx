@@ -61,7 +61,7 @@ export default function CartPage() {
                 </div>
                 <div>
                   <h2 className="text-lg font-semibold">{item.name}</h2>
-                  <p className="text-gray-600">${item.price}</p>
+                  <p className="text-gray-600">{item.price}</p>
                 </div>
               </div>
 
