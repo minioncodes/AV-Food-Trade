@@ -5,10 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 const images = [
-  "https://media.istockphoto.com/id/1067505384/photo/bowl-with-pistachio-on-wooden-table.webp?a=1&b=1&s=612x612&w=0&k=20&c=fv8jg87XyvNDqRp6K9ZC9uoWp3PFE8kqodgG_kWc25Y=",
-  "https://media.istockphoto.com/id/994318084/photo/dried-almonds-from-fields-without-pesticides.jpg?s=612x612&w=0&k=20&c=tgiSZnosYJp5P2BzOUwTn4lrgf00_ePzOvo-dhPkm2o=",
-  "https://media.istockphoto.com/id/1194756954/photo/close-up-of-nuts.jpg?s=612x612&w=0&k=20&c=lO1wleIvXfCJJyy5ROUObdSqjEpqFOeThOuOesjDeGM=",
-  "https://media.istockphoto.com/id/2195476089/photo/rich-variation-of-spices-legumes-and-seeds-at-spice-market-in-delhi.webp?a=1&b=1&s=612x612&w=0&k=20&c=47T9v1A6Axcw8IUXbmSoGQdkoNsXotFp5_jKxoWMZgA="
+"/1.jpg",
+"/2.jpg",
+"/3.jpg",
+"/4.jpg",
+"/5.jpg",
 ];
 
 const Hero = () => {

@@ -126,7 +126,7 @@ export default function ProductsList() {
       {/* --- View All Products Button --- */}
       <div className="text-center mt-6">
         <button
-          onClick={() => router.push("/user/catelog")}
+          onClick={() => router.push("/catelog")}
           className="px-6 py-2 text-sm font-medium text-white bg-green-600 rounded-full shadow hover:bg-green-700 transition"
         >
           View All Products

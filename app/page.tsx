@@ -1,8 +1,6 @@
 "use client";
 
-import Header from "@/components/user/Header";
 import Hero from "@/components/user/Hero";
-import Footer from "@/components/user/Footer";
 import WhyChooseUsSection from "@/components/user/WhyChose";
 import BulkDealsSection from "@/components/user/BulkDeals";
 import TestimonialsSection from "@/components/user/Testimonials";
