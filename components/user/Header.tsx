@@ -41,8 +41,9 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-lg bg-white/80 border-b border-gray-200 shadow-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
+        {/* Make the bar a 3-col grid so the search stays centered */}
+        <div className="grid grid-cols-3 items-center h-20">
+          {/* Left: Logo */}
           <span className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
@@ -55,35 +56,31 @@ const Header = () => {
             </Link>
           </span>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex space-x-10 text-gray-800 font-semibold text-sm tracking-wide">
-            <Link
-              href="/catelog"
-              className="hover:text-green-600 transition-colors"
-            >
-              SHOP
-            </Link>
-            <Link
-              href="/contact"
-              className="hover:text-green-600 transition-colors"
-            >
-              CONTACT
-            </Link>
-          </nav>
-
-          {/* Right Section */}
-          <div className="flex items-center space-x-4">
-            {/* Search (desktop only) */}
-            <div className="hidden sm:flex items-center bg-gray-100 px-4 py-2 rounded-full shadow-sm transition focus-within:ring-2 focus-within:ring-green-500">
+          {/* Center: Search (desktop only) */}
+          <div className="hidden sm:flex justify-center">
+            <div className="flex items-center bg-gray-100 px-4 py-2 rounded-full shadow-sm transition focus-within:ring-2 focus-within:ring-green-500 w-full max-w-md">
               <FiSearch size={18} className="text-gray-500" />
               <input
                 type="text"
                 placeholder="Search wholesale groceries..."
-                className="bg-transparent border-none focus:ring-0 text-sm ml-2 outline-none placeholder-gray-500 w-40"
+                className="bg-transparent border-none focus:ring-0 text-sm ml-2 outline-none placeholder-gray-500 w-full"
               />
             </div>
+          </div>
 
-            {/* ✅ Cart always visible */}
+          {/* Right: Nav + Cart + Account + Hamburger */}
+          <div className="flex items-center justify-end space-x-4">
+            {/* Desktop Nav */}
+            <nav className="hidden md:flex items-center space-x-8 text-gray-800 font-semibold text-sm tracking-wide">
+              <Link href="/catelog" className="hover:text-green-600 transition-colors">
+                SHOP
+              </Link>
+              <Link href="/contact" className="hover:text-green-600 transition-colors">
+                CONTACT
+              </Link>
+            </nav>
+
+            {/* Cart */}
             <Link
               href="/cart"
               className="relative hover:scale-105 transition-transform"
@@ -157,7 +154,7 @@ const Header = () => {
               </div>
             )}
 
-            {/* ✅ Hamburger toggle (mobile only) */}
+            {/* Hamburger (mobile only) */}
             <button
               className="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100"
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -172,6 +169,18 @@ const Header = () => {
       {/* Mobile Nav */}
       {mobileOpen && (
         <div className="md:hidden bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-200 animate-fade-in">
+          {/* Optional: show a full-width search on mobile */}
+          <div className="px-4 pt-4">
+            <div className="flex items-center bg-gray-100 px-4 py-2 rounded-full shadow-sm transition focus-within:ring-2 focus-within:ring-green-500">
+              <FiSearch size={18} className="text-gray-500" />
+              <input
+                type="text"
+                placeholder="Search wholesale groceries..."
+                className="bg-transparent border-none focus:ring-0 text-sm ml-2 outline-none placeholder-gray-500 w-full"
+              />
+            </div>
+          </div>
+
           <nav className="flex flex-col space-y-3 px-4 py-4 text-gray-800 font-semibold">
             <Link
               href="/catelog"
