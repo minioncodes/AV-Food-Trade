@@ -40,35 +40,35 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-lg bg-white/80 border-b border-gray-200 shadow-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Make the bar a 3-col grid so the search stays centered */}
-        <div className="grid grid-cols-3 items-center h-20">
+        {/* 3-col bar so center stays truly centered */}
+        <div className="grid grid-cols-3 items-center h-16 sm:h-20">
           {/* Left: Logo */}
           <span className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
                 src="/av-trade.png"
                 alt="AV Logo"
-                width={45}
-                height={45}
-                className="mr-3 object-contain"
+                width={40}
+                height={40}
+                className="mr-2 object-contain sm:mr-3 sm:w-[45px] sm:h-[45px]"
               />
             </Link>
           </span>
 
-          {/* Center: Search (desktop only) */}
-          <div className="hidden sm:flex justify-center">
-            <div className="flex items-center bg-gray-100 px-4 py-2 rounded-full shadow-sm transition focus-within:ring-2 focus-within:ring-green-500 w-full max-w-md">
-              <FiSearch size={18} className="text-gray-500" />
+          {/* Center: Search — visible on mobile & desktop; size adapts */}
+          <div className="flex justify-center">
+            <div className="flex items-center bg-gray-100 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-sm transition focus-within:ring-2 focus-within:ring-green-500 w-full max-w-[200px] sm:max-w-md">
+              <FiSearch size={18} className="text-gray-500 shrink-0" />
               <input
                 type="text"
-                placeholder="Search wholesale groceries..."
+                placeholder="Search…"
                 className="bg-transparent border-none focus:ring-0 text-sm ml-2 outline-none placeholder-gray-500 w-full"
               />
             </div>
           </div>
 
-          {/* Right: Nav + Cart + Account + Hamburger */}
-          <div className="flex items-center justify-end space-x-4">
+          {/* Right: Cart + Hamburger on mobile; full nav & account on desktop */}
+          <div className="flex items-center justify-end space-x-3 sm:space-x-4">
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center space-x-8 text-gray-800 font-semibold text-sm tracking-wide">
               <Link href="/catelog" className="hover:text-green-600 transition-colors">
@@ -79,10 +79,11 @@ const Header = () => {
               </Link>
             </nav>
 
-            {/* Cart */}
+            {/* Cart (always visible) */}
             <Link
               href="/cart"
               className="relative hover:scale-105 transition-transform"
+              aria-label="Cart"
             >
               <FiShoppingCart size={26} className="text-gray-800" />
               {cartCount > 0 && (
@@ -92,7 +93,7 @@ const Header = () => {
               )}
             </Link>
 
-            {/* Account / Get In Touch (desktop only) */}
+            {/* Account (desktop only) */}
             {session ? (
               <div className="hidden md:block relative" ref={menuRef}>
                 <button
@@ -109,15 +110,6 @@ const Header = () => {
                 {menuOpen && (
                   <div className="absolute right-0 mt-3 w-52 bg-white border border-gray-200 rounded-xl shadow-lg z-20">
                     <ul className="flex flex-col py-2 text-gray-700 text-sm font-medium">
-                      <li>
-                        {/* <Link
-                          href={`/profile/${session.user?.id}`}
-                          className="flex items-center space-x-2 px-4 py-2 hover:bg-gray-100 transition"
-                        >
-                          <FiUserCheck size={16} />
-                          <span>Profile</span>
-                        </Link> */}
-                      </li>
                       <li>
                         <Link
                           href="#"
@@ -153,7 +145,7 @@ const Header = () => {
               </div>
             )}
 
-            {/* Hamburger (mobile only) */}
+            {/* Hamburger (mobile only) — sits to the right of cart */}
             <button
               className="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100"
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -165,53 +157,33 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile Nav Sheet */}
       {mobileOpen && (
         <div className="md:hidden bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-200 animate-fade-in">
-          {/* Optional: show a full-width search on mobile */}
-          <div className="px-4 pt-4">
-            <div className="flex items-center bg-gray-100 px-4 py-2 rounded-full shadow-sm transition focus-within:ring-2 focus-within:ring-green-500">
-              <FiSearch size={18} className="text-gray-500" />
-              <input
-                type="text"
-                placeholder="Search wholesale groceries..."
-                className="bg-transparent border-none focus:ring-0 text-sm ml-2 outline-none placeholder-gray-500 w-full"
-              />
-            </div>
-          </div>
-
-          <nav className="flex flex-col space-y-3 px-4 py-4 text-gray-800 font-semibold">
+          <nav className="flex flex-col px-4 py-3 text-gray-900 text-base font-medium">
             <Link
               href="/catelog"
               onClick={() => setMobileOpen(false)}
-              className="hover:text-green-600 transition-colors"
+              className="py-3 border-b border-gray-100 hover:text-green-600 transition-colors"
             >
               SHOP
             </Link>
             <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}
-              className="hover:text-green-600 transition-colors"
+              className="py-3 hover:text-green-600 transition-colors"
             >
               CONTACT
             </Link>
 
             {session ? (
               <>
-                {/* <Link
-                  // href={`/profile/${session.user?.id}`}
-                  onClick={() => setMobileOpen(false)}
-                  className="flex items-center space-x-2 px-4 py-2 text-sm font-medium hover:text-green-600 transition"
-                > */}
-                  {/* <FiUserCheck size={18} />
-                  <span>Profile</span>
-                </Link> */}
                 <Link
                   href="#"
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center space-x-2 px-4 py-2 text-sm font-medium hover:text-green-600 transition"
+                  className="py-3 flex items-center space-x-2 hover:text-green-600 transition-colors"
                 >
-                  <FiPackage size={18} />
+                  <FiPackage className="shrink-0" size={18} />
                   <span>Orders</span>
                 </Link>
                 <button
@@ -219,9 +191,9 @@ const Header = () => {
                     signOut({ callbackUrl: "/" });
                     setMobileOpen(false);
                   }}
-                  className="flex items-center space-x-2 px-4 py-2 text-sm font-medium hover:text-green-600 transition"
+                  className="py-3 flex items-center space-x-2 text-left hover:text-green-600 transition-colors"
                 >
-                  <FiLogOut size={18} />
+                  <FiLogOut className="shrink-0" size={18} />
                   <span>Sign Out</span>
                 </button>
               </>
@@ -231,7 +203,7 @@ const Header = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
-                className="px-4 py-2 text-center text-sm font-medium text-white bg-green-600 rounded-md shadow hover:bg-green-700 transition"
+                className="mt-2 px-4 py-2 text-center text-sm font-medium text-white bg-green-600 rounded-md shadow hover:bg-green-700 transition"
               >
                 Get In Touch
               </Link>
