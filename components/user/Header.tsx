@@ -174,7 +174,7 @@ const Header = () => {
       {results.length === 0 ? (
         <div className="px-4 py-3 text-sm text-gray-600">No results for “{q}”.</div>
       ) : (
-        <ul role="listbox" className="divide-y divide-gray-100">
+        <ul className="divide-y divide-gray-100">
           {results.map((p, i) => (
             <li key={p._id} className={activeIdx === i ? "bg-green-50" : ""}>
               {/* ONE COMPACT ROW — same layout as desktop, scaled down */}
