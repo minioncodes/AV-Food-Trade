@@ -49,7 +49,7 @@ export default function WhyChooseUsSection() {
 
       {/* ✅ Desktop Marquee */}
       <div className="hidden sm:block relative w-full overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap space-x-16">
+        <div className="flex animate-marquee whitespace-nowrap space-x-16 m-5">
           {[...usps, ...usps].map((u, i) => (
             <div
               key={i}

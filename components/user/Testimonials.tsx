@@ -6,8 +6,8 @@ export default function TestimonialsSection() {
   const testimonials = [
     { name: "Rahul Kumar", role: "Retailer, Mumbai", feedback: "AV-TRADE delivers fresh and high-quality products every time.", img: "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?w=500&auto=format&fit=crop&q=60", rating: 5, bulkWeight: "500kg" },
     { name: "Sita Sharma", role: "Restaurant Owner, Delhi", feedback: "Amazing pricing and super-fast delivery! Highly recommend.", img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500&auto=format&fit=crop&q=60", rating: 4, bulkWeight: "200kg" },
-    { name: "Amit Patel", role: "Shop Owner, Bangalore", feedback: "Reliable suppliers, consistent quality, and excellent support.", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80", rating: 5, bulkWeight: "350kg" },
-    { name: "Neha Verma", role: "Café Owner, Pune", feedback: "Top-notch products and timely delivery every single time.", img: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80", rating: 5, bulkWeight: "150kg" },
+    { name: "Neha Verma", role: "Shop Owner, Bangalore", feedback: "Reliable suppliers, consistent quality, and excellent support.", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80", rating: 5, bulkWeight: "350kg" },
+    { name: "Amit Patel", role: "Café Owner, Pune", feedback: "Top-notch products and timely delivery every single time.", img: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80", rating: 5, bulkWeight: "150kg" },
     { name: "Arjun Mehta", role: "Wholesaler, Jaipur", feedback: "Great bulk deals that help my business grow.", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80", rating: 4, bulkWeight: "1 Ton" },
     { name: "Priya Singh", role: "Bakery Owner, Lucknow", feedback: "The quality is unmatched, my customers love it.", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80", rating: 5, bulkWeight: "250kg" },
   ];
