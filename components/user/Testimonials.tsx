@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import "@/app/globals.css";
 
@@ -48,9 +49,21 @@ const testimonials = [
 ];
 
 const TestimonialsSection: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Auto slide every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % testimonials.length);
+    }, 4000); // change slide every 4s
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="w-full overflow-hidden py-10">
-      <div className="flex testimonial-scroll gap-x-20">
+      {/* Desktop auto-scroll */}
+      <div className="hidden md:flex testimonial-scroll gap-x-8">
         {[...testimonials, ...testimonials].map((t, idx) => (
           <div
             key={idx}
@@ -71,6 +84,44 @@ const TestimonialsSection: React.FC = () => {
             <p className="italic text-gray-700 mt-3">“{t.feedback}”</p>
           </div>
         ))}
+      </div>
+
+      {/* Mobile one-by-one carousel with auto-change + dots */}
+      <div className="md:hidden flex flex-col items-center transition-all duration-500">
+        <div className="w-[90%] text-center">
+          <Image
+            width={100}
+            height={100}
+            src={testimonials[activeIndex].img}
+            alt={testimonials[activeIndex].name}
+            className="w-24 h-24 rounded-full object-cover mx-auto mb-4"
+          />
+          <h3 className="text-lg font-semibold text-green-700">
+            {testimonials[activeIndex].name}
+          </h3>
+          <p className="text-sm text-gray-600">
+            {testimonials[activeIndex].role}
+          </p>
+          <p className="text-green-700 font-semibold mt-1">
+            Bulk Order: {testimonials[activeIndex].bulkWeight}
+          </p>
+          <p className="italic text-gray-700 mt-3">
+            “{testimonials[activeIndex].feedback}”
+          </p>
+        </div>
+
+        {/* Dots Navigation */}
+        <div className="flex gap-2 mt-4">
+          {testimonials.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveIndex(idx)}
+              className={`w-3 h-3 rounded-full transition-colors ${
+                idx === activeIndex ? "bg-green-600" : "bg-gray-300"
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
