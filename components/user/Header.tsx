@@ -20,7 +20,6 @@ import Image from "next/image";
 // ⬇️ Adjust these paths
 import { dummyProducts } from "@/app/data/DummyProducts";
 import { addToCart } from "@/redux/slices/user-slice/cartSlice";
-import CheckoutButton from "@/components/checkout/CheckoutButton";
 
 type Product = {
   _id: string;
@@ -79,9 +78,9 @@ const Header = () => {
   const searchWrapRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const cartCount = useSelector((state: RootState) =>
-    state.cart.items.reduce((sum, item) => sum + item.quantity, 0)
-  );
+  const cart = useSelector((state: RootState) => state.cart.items);
+  const cartCount = useMemo(() => cart.reduce((sum, item) => sum + item.quantity, 0), [cart]);
+  const total = useMemo(() => cart.reduce((sum, item) => sum + item.price * item.quantity, 0), [cart]);
 
   // debounce
   const [debouncedQ, setDebouncedQ] = useState(q);
@@ -125,6 +124,25 @@ const Header = () => {
       setShowDropdown(false);
       setActiveIdx(-1);
     }
+  };
+
+  const handleCheckout = () => {
+    const phoneNumber = "917880561870"; // ✅ Replace with your WhatsApp number (no +, no spaces)
+
+    const itemsList = cart
+      .map(
+        (item, i) =>
+          `${i + 1}. ${item.name} (x${item.quantity}) - $${(
+            item.price * item.quantity
+          ).toFixed(2)}`
+      )
+      .join("%0A"); // line break in WhatsApp
+
+    const message = `Hello, I’d like to place an order 🛒%0A%0AItems:%0A${itemsList}%0A%0ATotal: $${total.toFixed(
+      2
+    )}%0A%0ALink: https://avtradecorp.com/user/cart`;
+
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
 
   return (
@@ -258,15 +276,12 @@ const Header = () => {
                               </button>
 
                               {/* Buy Now (force same size/styles on the inner button/anchor) */}
-                              <div
-                                onClick={(e) => e.stopPropagation()}
-                                className="
-      inline-flex items-center justify-center
-               px-3 rounded-md text-[12px] font-semibold
-      bg-blue-500 text-white hover:bg-blue-700 transition"
-                              >
-                                <CheckoutButton amount={p.price} />
-                              </div>
+                              <button
+              onClick={handleCheckout}
+              className="h-8 px-3 rounded-md text-[12px] font-semibold bg-blue-500 text-white hover:bg-blue-700"
+            >
+              Checkout
+            </button>
                             </div>
                           </div>
                         </li>
@@ -279,9 +294,9 @@ const Header = () => {
           </div>
 
           {/* Right: Cart + Hamburger */}
-          <div className="flex items-center justify-end space-x-3 sm:space-x-4">
+          <div className="flex items-center justify-end space-x-5 sm:space-x-4">
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center space-x-8 text-gray-800 font-semibold text-sm tracking-wide">
+            <nav className="hidden md:flex items-center space-x-5  text-gray-800 font-semibold text-sm tracking-wide">
               <Link
                 href="/catelog"
                 className="hover:text-green-600 transition-colors"
@@ -433,3 +448,6 @@ const Header = () => {
 };
 
 export default Header;
+
+
+

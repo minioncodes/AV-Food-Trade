@@ -25,7 +25,7 @@ export default function CartPage() {
 
     const message = `Hello, I’d like to place an order 🛒%0A%0AItems:%0A${itemsList}%0A%0ATotal: $${total.toFixed(
       2
-    )}%0A%0ALink: https://yourdomain.com/user/cart`;
+    )}%0A%0ALink: https://avtradecorp.com/user/cart`;
 
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
