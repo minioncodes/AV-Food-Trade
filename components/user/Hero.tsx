@@ -33,7 +33,7 @@ const Hero = () => {
   return (
     <section className="relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center py-20 lg:py-28">
+        <div className="flex flex-col lg:flex-row items-center py-10 lg:py-28">
 
           {/* Text Section */}
           <div className="w-full lg:w-2/5 relative z-10">
@@ -41,22 +41,22 @@ const Hero = () => {
               Fresh Dry Fruits & Groceries <br />
               <span className="text-amber-700">At Wholesale Value</span>
             </h1>
-            <p className="mt-6 text-lg text-gray-700 leading-relaxed max-w-md">
+            <p className="mt-5 text-lg text-gray-700 leading-relaxed max-w-md">
               Supplying the best quality nuts, spices, and groceries in bulk. 
               Trusted by retailers, businesses, and families across India. 
               Pure, healthy, and affordable.
             </p>
 
-            <div className="mt-8 flex space-x-4">
+            <div className="mt-5 flex space-x-4">
               <Link
                 href="#"
-                className="px-7 py-3 rounded-xl bg-gradient-to-r from-green-600 to-emerald-500 text-white font-semibold shadow-md hover:opacity-90 transition"
+                className="px-5 py-3 rounded-xl bg-gradient-to-r from-green-600 to-emerald-500 text-white font-semibold shadow-md hover:opacity-90 transition"
               >
                 Shop Wholesale
               </Link>
               <Link
                 href="#"
-                className="px-7 py-3 rounded-xl border-2 border-amber-600 text-amber-700 font-semibold hover:bg-amber-50 transition"
+                className="px-5 py-3 rounded-xl border-2 border-amber-600 text-amber-700 font-semibold hover:bg-amber-50 transition"
               >
                 Learn More
               </Link>
@@ -64,23 +64,23 @@ const Hero = () => {
           </div>
 
           {/* Image Slider */}
-          <div className="relative w-full lg:w-3/5 h-80 lg:h-[520px] mt-12 lg:mt-0 lg:pl-12 overflow-hidden rounded-2xl shadow-xl ring-2 ring-green-100">
-            <div
-              className="flex transition-transform duration-700 ease-in-out h-full"
-              style={{ transform: `translateX(-${current * 100}%)` }}
-            >
-              {images.map((img, idx) => (
-                <div key={idx} className="w-full flex-shrink-0 relative h-full">
-                  <Image
-                    src={img}
-                    alt={`Slide ${idx + 1}`}
-                    fill
-                    className="object-cover"
-                    priority={idx === 0}
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="relative w-full lg:w-3/5 aspect-[16/9] lg:aspect-[4/3] mt-8 lg:mt-0 lg:pl-12 overflow-hidden rounded-2xl shadow-xl ring-2 ring-green-100">
+  <div
+    className="flex transition-transform duration-700 ease-in-out h-full"
+    style={{ transform: `translateX(-${current * 100}%)` }}
+  >
+    {images.map((img, idx) => (
+      <div key={idx} className="w-full flex-shrink-0 relative h-full">
+        <Image
+          src={img}
+          alt={`Slide ${idx + 1}`}
+          fill
+          className="object-cover"
+          priority={idx === 0}
+        />
+      </div>
+    ))}
+  </div>
 
             {/* Prev Button */}
             <button
