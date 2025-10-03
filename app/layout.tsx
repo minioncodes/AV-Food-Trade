@@ -4,6 +4,7 @@ import "./globals.css";
 import StoreProvider from "./StoreProvider";
 import { SessionProvider } from "next-auth/react";
 import Footer from "@/components/user/Footer";
+import PromoStrip from "@/components/promo";
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -15,6 +16,7 @@ export default function RootLayout({
       >
         <StoreProvider>
           <SessionProvider>
+            <PromoStrip/>
             <Header/>
             {children}
             <Footer/>
