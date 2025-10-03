@@ -37,9 +37,8 @@ export default function Home() {
         </RevealOnScroll>
 
 
-        <RevealOnScroll direction="left" delay={0.2}>
           <TestimonialsSection />
-        </RevealOnScroll>
+        
       </section>
     </>
   );

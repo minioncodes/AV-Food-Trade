@@ -22,7 +22,7 @@ export default function ContactPage() {
               <div className="space-y-4 text-gray-700">
                 <p>
                   <span className="font-semibold text-green-800">📍 Address:</span>  
-                  123 AV-TRADE Street, Lucknow, India
+                  First Floor, Priyadarshini Apartment, 05, Wazir Hasan Road, Block I, Gokhale Vihar, Hazratganj, Lucknow, Uttar Pradesh 226001
                 </p>
                 <p>
                   <span className="font-semibold text-green-800">📞 Phone:</span>  
@@ -30,7 +30,7 @@ export default function ContactPage() {
                 </p>
                 <p>
                   <span className="font-semibold text-green-800">✉️ Email:</span>  
-                  support@avtrade.com
+                  support@avtradecorp.com
                 </p>
               </div>
             </div>
@@ -38,7 +38,7 @@ export default function ContactPage() {
             {/* Right Contact Form (FormSubmit) */}
             <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-10">
               <form
-                action="https://formsubmit.co/himanshu@digipants.com"
+                action="https://formsubmit.co/support@avtradecorp.com"
                 method="POST"
                 className="space-y-6"
               >
@@ -49,11 +49,11 @@ export default function ContactPage() {
                 <input type="hidden" name="_captcha" value="false" />
 
                 {/* Redirect after success */}
-                <input
+                {/* <input
                   type="hidden"
                   name="_next"
-                  value="https://yourdomain.com/thank-you"
-                />
+                  value="https://avtradecorp.com/thank-you"
+                /> */}
 
                 <div>
                   <label className="block text-sm font-semibold text-green-800 mb-2">

@@ -63,8 +63,8 @@ export async function POST(req: NextRequest) {
       path: "/",
     });
 
-    const userObj = newUser.toObject();
-    delete (userObj as any).password;
+    const userObj = newUser.toObject() as Record<string, unknown>;
+    delete userObj.password;
 
     return NextResponse.json({ user: userObj, token }, { status: 201 });
   } catch (e: unknown) {
