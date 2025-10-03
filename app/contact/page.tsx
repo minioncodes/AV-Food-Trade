@@ -30,7 +30,7 @@ export default function ContactPage() {
                 </p>
                 <p>
                   <span className="font-semibold text-green-800">✉️ Email:</span>  
-                  support@avtrade.com
+                  support@avtradecorp.com
                 </p>
               </div>
             </div>
@@ -38,7 +38,7 @@ export default function ContactPage() {
             {/* Right Contact Form (FormSubmit) */}
             <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-10">
               <form
-                action="https://formsubmit.co/aman@digipants.com"
+                action="https://formsubmit.co/support@avtradecorp.com"
                 method="POST"
                 className="space-y-6"
               >
@@ -49,11 +49,11 @@ export default function ContactPage() {
                 <input type="hidden" name="_captcha" value="false" />
 
                 {/* Redirect after success */}
-                <input
+                {/* <input
                   type="hidden"
                   name="_next"
                   value="https://avtradecorp.com/thank-you"
-                />
+                /> */}
 
                 <div>
                   <label className="block text-sm font-semibold text-green-800 mb-2">
