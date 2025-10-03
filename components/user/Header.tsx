@@ -20,6 +20,7 @@ import Image from "next/image";
 // ⬇️ Adjust these paths
 import { dummyProducts } from "@/app/data/DummyProducts";
 import { addToCart } from "@/redux/slices/user-slice/cartSlice";
+import PromoStrip from "../promo";
 
 type Product = {
   _id: string;
@@ -146,7 +147,9 @@ const Header = () => {
   };
 
   return (
+
     <header className="sticky top-0 z-50 backdrop-blur-lg bg-white/80 border-b border-gray-200 shadow-sm">
+      <PromoStrip />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* 3-col bar keeps search centered */}
         <div className="grid grid-cols-[auto_minmax(0,_1fr)_auto] items-center h-16 sm:h-20 gap-3 sm:gap-4">
