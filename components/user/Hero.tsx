@@ -4,37 +4,51 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const images = [
-"/1.jpg",
-"/2.jpg",
-"/3.jpg",
-"/4.jpg",
-"/5.jpg",
+const carousels = [
+  ["/1.jpg", "/2.jpg", "/3.jpg", "/4.jpg"],
+  ["/6.jpg", "/7.jpg", "/8.jpg", "/9.jpg"],
+  ["/10.jpg", "/11.jpg", "/12.jpg", "/13.jpg"],
+  ["/14.jpg", "/15.jpg", "/16.jpg", "/17.jpg"],
+ 
 ];
 
-const Hero = () => {
+function AutoCarousel({ images }: { images: string[] }) {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    }, 5000);
+    }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [images.length]);
 
-  const nextSlide = () => {
-    setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-  };
+  return (
+    <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl shadow-md ring-1 ring-green-200">
+      <div
+        className="flex transition-transform duration-700 ease-in-out h-full"
+        style={{ transform: `translateX(-${current * 100}%)` }}
+      >
+        {images.map((img, idx) => (
+          <div key={idx} className="w-full flex-shrink-0 relative h-full">
+            <Image
+              src={img}
+              alt={`Slide ${idx + 1}`}
+              fill
+              className="object-cover"
+              priority={idx === 0}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
-  const prevSlide = () => {
-    setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  };
-
+const Hero = () => {
   return (
     <section className="relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center py-10 lg:py-28">
-
           {/* Text Section */}
           <div className="w-full lg:w-2/5 relative z-10">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-green-800 leading-tight drop-shadow-sm">
@@ -42,8 +56,8 @@ const Hero = () => {
               <span className="text-amber-700">At Wholesale Value</span>
             </h1>
             <p className="mt-5 text-lg text-gray-700 leading-relaxed max-w-md">
-              Supplying the best quality nuts, spices, and groceries in bulk. 
-              Trusted by retailers, businesses, and families across India. 
+              Supplying the best quality nuts, spices, and groceries in bulk.
+              Trusted by retailers, businesses, and families across India.
               Pure, healthy, and affordable.
             </p>
 
@@ -63,73 +77,11 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Image Slider */}
-          <div className="relative w-full lg:w-3/5 aspect-[16/9] lg:aspect-[4/3] mt-8 lg:mt-0 lg:pl-12 overflow-hidden rounded-2xl shadow-xl ring-2 ring-green-100">
-  <div
-    className="flex transition-transform duration-700 ease-in-out h-full"
-    style={{ transform: `translateX(-${current * 100}%)` }}
-  >
-    {images.map((img, idx) => (
-      <div key={idx} className="w-full flex-shrink-0 relative h-full">
-        <Image
-          src={img}
-          alt={`Slide ${idx + 1}`}
-          fill
-          className="object-cover"
-          priority={idx === 0}
-        />
-      </div>
-    ))}
-  </div>
-
-            {/* Prev Button */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 text-green-800"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-
-            {/* Next Button */}
-            <button
-              onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 text-green-800"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-
-            {/* Dots */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-              {images.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrent(idx)}
-                  className={`w-3 h-3 rounded-full transition ${
-                    current === idx
-                      ? "bg-green-700 scale-110"
-                      : "bg-gray-400 hover:bg-gray-600"
-                  }`}
-                />
-              ))}
-            </div>
+          {/* 4 Auto Carousels */}
+          <div className="w-full lg:w-3/5 grid grid-cols-2 lg:grid-cols-2 gap-4 mt-8 lg:mt-0 lg:pl-12">
+            {carousels.map((imgs, idx) => (
+              <AutoCarousel key={idx} images={imgs} />
+            ))}
           </div>
         </div>
       </div>
