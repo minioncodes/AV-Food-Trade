@@ -18,14 +18,13 @@ export default function ProductsList() {
         Featured Products
       </h1>
 
-      {/* --- Two Product Rows (Horizontal Scroll like Flipkart/Amazon) --- */}
       {[0, 1].map((rowIndex) => (
         <div
           key={rowIndex}
           className="flex space-x-4 overflow-x-auto scrollbar-hide pb-4 mb-6"
         >
           {dummyProducts
-            .slice(rowIndex * 6, rowIndex * 6 + 6) // 6 products per row
+            .slice(rowIndex * 6, rowIndex * 6 + 6)
             .map((product) => (
               <div
                 key={product._id}
