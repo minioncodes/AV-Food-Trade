@@ -38,7 +38,7 @@ export default function ContactPage() {
             {/* Right Contact Form (FormSubmit) */}
             <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-10">
               <form
-                action="https://formsubmit.co/himanshu@digipants.com"
+                action="https://formsubmit.co/aman@digipants.com"
                 method="POST"
                 className="space-y-6"
               >
@@ -52,7 +52,7 @@ export default function ContactPage() {
                 <input
                   type="hidden"
                   name="_next"
-                  value="https://yourdomain.com/thank-you"
+                  value="https://avtradecorp.com/thank-you"
                 />
 
                 <div>
