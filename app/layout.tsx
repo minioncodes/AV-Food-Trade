@@ -16,7 +16,7 @@ export default function RootLayout({
       >
         <StoreProvider>
           <SessionProvider>
-            <PromoStrip/>
+            {/* <PromoStrip/> */}
             <Header/>
             {children}
             <Footer/>
