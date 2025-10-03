@@ -43,7 +43,7 @@ export default function BulkDealsSection() {
                 quality={100}
 
 
-                className="w-full "
+                className="w-full lg:h-48 object-cover"
               />
               <div className="p-6">
                 <h3 className="text-xl font-bold text-green-900">{d.name}</h3>
