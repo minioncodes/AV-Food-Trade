@@ -22,7 +22,7 @@ export default function ContactPage() {
               <div className="space-y-4 text-gray-700">
                 <p>
                   <span className="font-semibold text-green-800">📍 Address:</span>  
-                  123 AV-TRADE Street, Lucknow, India
+                  First Floor, Priyadarshini Apartment, 05, Wazir Hasan Road, Block I, Gokhale Vihar, Hazratganj, Lucknow, Uttar Pradesh 226001
                 </p>
                 <p>
                   <span className="font-semibold text-green-800">📞 Phone:</span>  

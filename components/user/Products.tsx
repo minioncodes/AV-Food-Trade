@@ -6,7 +6,6 @@ import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 import CheckoutButton from "../checkout/CheckoutButton";
 import { useRouter } from "next/navigation";
-
 import { dummyProducts } from "@/app/data/DummyProducts";
 
 export default function ProductsList() {
@@ -89,7 +88,7 @@ export default function ProductsList() {
                   </div>
 
                   {/* Buttons */}
-                  <div className="grid grid-cols-2 gap-1 mt-auto pt-1">
+                  <div className="grid text-2 font-semibold grid-cols-2 gap-1 mt-auto pt-1">
                     <button
                       disabled={product.stock === 0}
                       onClick={() =>
@@ -103,7 +102,7 @@ export default function ProductsList() {
                           })
                         )
                       }
-                      className={`p-1 text-xs rounded-lg text-white font-semibold transition ${
+                      className={`p-1 text-2 rounded-lg text-white transition ${
                         product.stock > 0
                           ? "bg-green-600 hover:bg-green-700"
                           : "bg-gray-400 cursor-not-allowed"
