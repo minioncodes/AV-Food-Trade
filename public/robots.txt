@@ -1,0 +1,12 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /dashboard
+
+# Host
+Host: https://www.avtradecorp.com
+
+# Sitemaps
+Sitemap: https://www.avtradecorp.com/sitemap.xml

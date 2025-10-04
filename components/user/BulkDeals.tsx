@@ -54,7 +54,7 @@ export default function BulkDealsSection() {
               </div>
             </div>
           ))}
-        </div>
+        </div>         
       </div>
     </section>
   );
