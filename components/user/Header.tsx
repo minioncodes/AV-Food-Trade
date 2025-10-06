@@ -202,7 +202,7 @@ const Header = () => {
       sm:inset-auto sm:absolute sm:top-[110%] sm:z-50 sm:w-full sm:max-w-md
     "
               >
-                <div className="mx-auto rounded-xl border border-gray-200 bg-white shadow-xl overflow-hidden">
+                <div className="mx-auto mt-10 rounded-xl border border-gray-200 bg-white shadow-xl overflow-hidden">
                   {results.length === 0 ? (
                     <div className="px-4 py-3 text-sm text-gray-600">
                       No results for “{q}”.
