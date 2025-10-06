@@ -57,7 +57,7 @@ export default function CheckoutButton({ amount }: { amount: number }) {
         key: data.key,
         amount: data.amount,
         currency: data.currency,
-        name: "Zescher Store",
+        name: "AV Food Trade",
         description: "Order Payment",
         order_id: data.orderId,
         handler: async (response: RazorpayResponse) => {

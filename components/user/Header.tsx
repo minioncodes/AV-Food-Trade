@@ -157,11 +157,10 @@ const Header = () => {
           <span className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
-                src="/av-trade.png"
+                src="/avt.svg"
                 alt="AV Logo"
-                width={40}
-                height={40}
-                className="mr-2 object-contain sm:mr-3 sm:w-[45px] sm:h-[45px]"
+                width={150}
+                height={50}
               />
             </Link>
           </span>
