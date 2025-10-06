@@ -50,7 +50,6 @@ const Hero = () => {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center py-10 lg:py-28">
           <div className="w-full lg:w-2/5 relative z-10">
-          <h1 className="lg:hidden text-green-600 text-xl italic font-semibold ">AV-TRADE CORPORATION</h1>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-green-800 leading-tight drop-shadow-sm">
               Fresh Dry Fruits & Groceries <br />
               <span className="text-amber-700">At Wholesale Value</span>
