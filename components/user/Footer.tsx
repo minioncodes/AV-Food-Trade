@@ -3,13 +3,21 @@
 import Link from "next/link";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import Newsletter from "./NewsLetter";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300 w-full">
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-12">  
         <div>
-          <h2 className="text-3xl font-extrabold text-white">AV-TRADE</h2>
+          <Link href="/" className="flex items-center">
+              <Image
+                src="/avtw.svg"
+                alt="AV Logo"
+                width={150}
+                height={50}
+              />
+            </Link>
           <p className="mt-4 text-sm text-gray-400 leading-relaxed">
             Premium groceries and dry fruits delivered fresh to your door.
           </p>
