@@ -7,7 +7,7 @@ const testimonials = [
   {
     name: "Rahul Kumar",
     role: "Retailer, Mumbai",
-    feedback: "AV-TRADE delivers fresh and high-quality products every time.",
+    feedback: "AV Trade Corporation delivers fresh and high-quality products every time.",
     img: "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?w=500&auto=format&fit=crop&q=60",
     bulkWeight: "500kg",
   },

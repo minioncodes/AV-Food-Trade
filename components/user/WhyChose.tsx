@@ -23,7 +23,7 @@ export default function WhyChooseUsSection() {
     <section className="py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center mb-12">
         <h2 className="text-4xl font-extrabold text-green-700 tracking-wide">
-          Why Choose AV-TRADE?
+          Why Choose AV Trade Corporation?
         </h2>
       </div>
 

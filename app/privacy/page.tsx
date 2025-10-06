@@ -21,7 +21,7 @@ export default function PrivacyPolicyPage() {
         className="prose prose-lg text-gray-700 leading-relaxed"
       >
         <p>
-          At <strong>AV-TRADE</strong>, your privacy is important to us. This
+          At <strong>AV Trade Corporation</strong>, your privacy is important to us. This
           policy explains how we collect, use, and protect your personal data.
         </p>
 

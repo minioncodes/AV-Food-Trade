@@ -21,7 +21,7 @@ export default function TermsPage() {
         className="prose prose-lg text-gray-700 leading-relaxed"
       >
         <p>
-          Welcome to <strong>AV-TRADE</strong>. By using our platform, you agree
+          Welcome to <strong>AV Trade Corporation</strong>. By using our platform, you agree
           to the following terms and conditions. Please read carefully before
           placing an order.
         </p>
@@ -73,13 +73,13 @@ export default function TermsPage() {
 
         <h2>6. Intellectual Property</h2>
         <p>
-          All content, branding, and images on AV-TRADE are protected by
+          All content, branding, and images on AV Trade Corporation are protected by
           copyright and trademark laws. Unauthorized use is prohibited.
         </p>
 
         <h2>7. Limitation of Liability</h2>
         <p>
-          AV-TRADE is not responsible for indirect damages, losses, or delays
+          AV Trade Corporation is not responsible for indirect damages, losses, or delays
           caused by external factors such as courier delays, natural disasters,
           or third-party service failures.
         </p>

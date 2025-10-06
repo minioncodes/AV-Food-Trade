@@ -9,10 +9,10 @@ export default function AboutPage() {
       <div className="max-w-5xl mx-auto px-6 lg:px-12">
         {/* Heading */}
         <h1 className="text-4xl font-extrabold text-green-700 mb-6 text-center">
-          About AV-Trade
+          About AV Trade Corporation
         </h1>
         <p className="text-lg text-gray-700 text-center mb-12 leading-relaxed">
-          Welcome to <span className="font-bold">AV-Trade</span>, your trusted
+          Welcome to <span className="font-bold">AV Trade Corporation</span>, your trusted
           partner for premium groceries — specializing in{" "}
           <span className="text-green-600 font-semibold">
             dry fruits, grains, pulses, and spices
@@ -28,7 +28,7 @@ export default function AboutPage() {
             Who We Are
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            AV-Trade was founded with a mission to bring natural, wholesome, and
+            AV Trade Corporation was founded with a mission to bring natural, wholesome, and
             carefully sourced groceries to families and businesses. We believe
             that good food is the foundation of good health, and that’s why we
             ensure every product we deliver meets the highest standards of
@@ -80,7 +80,7 @@ export default function AboutPage() {
             Our Values
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            At AV-Trade, we stand by three simple principles:
+            At AV Trade Corporation, we stand by three simple principles:
           </p>
           <ul className="list-decimal pl-6 mt-3 text-gray-700 space-y-2">
             <li>
@@ -125,10 +125,10 @@ export default function AboutPage() {
         {/* Closing Note */}
         <section className="text-center">
           <h2 className="text-2xl font-bold text-green-700 mb-3">
-            Why Choose AV-Trade?
+            Why Choose AV Trade Corporation?
           </h2>
           <p className="text-gray-700 leading-relaxed max-w-3xl mx-auto">
-            With AV-Trade, you don’t just buy groceries — you invest in quality,
+            With AV Trade Corporation, you don’t just buy groceries — you invest in quality,
             trust, and care. Join thousands of happy customers who count on us
             for their daily essentials and premium grocery needs.
           </p>
