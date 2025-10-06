@@ -195,113 +195,102 @@ const Header = () => {
             </div>
 
             {showDropdown && q && (
-              <div
-                // Mobile: fixed, wide; Desktop: absolute under input
-                className="
-      fixed inset-x-2 top-16 z-[60]
+  <div
+    // Mobile: fixed, wide; Desktop: absolute under input
+    className="
+      fixed inset-x-2 top-16 z-[60] mt-10 sm:mt-0
       sm:inset-auto sm:absolute sm:top-[110%] sm:z-50 sm:w-full sm:max-w-md
     "
-              >
-                <div className="mx-auto mt-10 rounded-xl border border-gray-200 bg-white shadow-xl overflow-hidden">
-                  {results.length === 0 ? (
-                    <div className="px-4 py-3 text-sm text-gray-600">
-                      No results for “{q}”.
-                    </div>
-                  ) : (
-                    <ul className="divide-y divide-gray-100">
-                      {results.map((p, i) => (
-                        <li
-                          key={p._id}
-                          className={activeIdx === i ? "bg-green-50" : ""}
-                        >
-                          {/* ONE COMPACT ROW — same layout as desktop, scaled down */}
-                          <div className="px-3 py-2.5 flex items-center gap-2">
-                            {/* Thumb */}
-                            <Link
-                              href={`/product/${p._id}`}
-                              className="relative h-10 w-10 shrink-0 rounded-md overflow-hidden bg-gray-100"
-                              onClick={() => {
-                                setShowDropdown(false);
-                                setQ("");
-                                setActiveIdx(-1);
-                              }}
-                            >
-                              {p.images?.[0] && (
-                                <Image
-                                  src={p.images[0]}
-                                  alt={p.name}
-                                  fill
-                                  sizes="40px"
-                                  className="object-cover"
-                                />
-                              )}
-                            </Link>
-
-                            {/* Title + tiny desc (truncated) */}
-                            <div className="min-w-0 flex-1">
-                              <Link
-                                href={`/product/${p._id}`}
-                                onClick={() => {
-                                  setShowDropdown(false);
-                                  setQ("");
-                                  setActiveIdx(-1);
-                                }}
-                                className="block"
-                              >
-                                <p className="truncate text-[13px] font-semibold text-gray-900 leading-5">
-                                  {p.name}
-                                </p>
-                                <p className="truncate text-[11px] text-gray-600 leading-4">
-                                  {p.description}
-                                </p>
-                              </Link>
-                            </div>
-
-                            {/* Price */}
-                            <div className="shrink-0 text-[13px] font-semibold text-green-700 ml-1">
-                              ₹{p.price}
-                            </div>
-
-                            {/* Buttons — same size for both */}
-                            <div className="shrink-0 flex items-center gap-1 ml-1 whitespace-nowrap">
-                              {/* Add to Cart */}
-                              <button
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  e.stopPropagation();
-                                  dispatch(
-                                    addToCart({
-                                      _id: String(p._id),
-                                      name: p.name,
-                                      price: p.price,
-                                      images: p.images ?? [],
-                                      quantity: 1,
-                                    })
-                                  );
-                                }}
-                                className="inline-flex items-center justify-center
-               h-8 px-3 rounded-md text-[12px] font-semibold
-               text-white bg-green-600 hover:bg-green-700 transition"
-                              >
-                                Add
-                              </button>
-
-                              {/* Buy Now (force same size/styles on the inner button/anchor) */}
-                              <button
-                                onClick={handleCheckout}
-                                className="h-8 px-3 rounded-md text-[12px] font-semibold bg-blue-500 text-white hover:bg-blue-700"
-                              >
-                                Checkout
-                              </button>
-                            </div>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
+  >
+    <div className="mx-auto rounded-xl border border-gray-200 bg-white shadow-xl overflow-hidden">
+      {results.length === 0 ? (
+        <div className="px-4 py-3 text-sm text-gray-600">
+          No results for “{q}”.
+        </div>
+      ) : (
+        <ul className="divide-y divide-gray-100">
+          {results.map((p, i) => (
+            <li key={p._id} className={activeIdx === i ? "bg-green-50" : ""}>
+              <div className="px-3 py-2.5 flex items-center gap-2">
+                <Link
+                  href={`/product/${p._id}`}
+                  className="relative h-10 w-10 shrink-0 rounded-md overflow-hidden bg-gray-100"
+                  onClick={() => {
+                    setShowDropdown(false);
+                    setQ("");
+                    setActiveIdx(-1);
+                  }}
+                >
+                  {p.images?.[0] && (
+                    <Image
+                      src={p.images[0]}
+                      alt={p.name}
+                      fill
+                      sizes="40px"
+                      className="object-cover"
+                    />
                   )}
+                </Link>
+
+                <div className="min-w-0 flex-1">
+                  <Link
+                    href={`/product/${p._id}`}
+                    onClick={() => {
+                      setShowDropdown(false);
+                      setQ("");
+                      setActiveIdx(-1);
+                    }}
+                    className="block"
+                  >
+                    <p className="truncate text-[13px] font-semibold text-gray-900 leading-5">
+                      {p.name}
+                    </p>
+                    <p className="truncate text-[11px] text-gray-600 leading-4">
+                      {p.description}
+                    </p>
+                  </Link>
+                </div>
+
+                <div className="shrink-0 text-[13px] font-semibold text-green-700 ml-1">
+                  ₹{p.price}
+                </div>
+
+                <div className="shrink-0 flex items-center gap-1 ml-1 whitespace-nowrap">
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      dispatch(
+                        addToCart({
+                          _id: String(p._id),
+                          name: p.name,
+                          price: p.price,
+                          images: p.images ?? [],
+                          quantity: 1,
+                        })
+                      );
+                    }}
+                    className="inline-flex items-center justify-center h-8 px-3 rounded-md text-[12px] font-semibold text-white bg-green-600 hover:bg-green-700 transition"
+                  >
+                    Add
+                  </button>
+
+                  <button
+                    onClick={handleCheckout}
+                    className="h-8 px-3 rounded-md text-[12px] font-semibold bg-blue-500 text-white hover:bg-blue-700"
+                  >
+                    Checkout
+                  </button>
                 </div>
               </div>
-            )}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </div>
+)}
+
           </div>
 
           {/* Right: Cart + Hamburger */}
