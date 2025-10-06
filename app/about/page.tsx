@@ -118,7 +118,7 @@ export default function AboutPage() {
           </p>
           <p className="text-gray-700 leading-relaxed">
             📧 <span className="font-semibold">Email:</span>{" "}
-            support@av-trade.com
+            support@avtradecorp.com
           </p>
         </section>
 
