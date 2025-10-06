@@ -162,12 +162,16 @@ const Header = () => {
           <span className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
-                src="/avt.svg"
+                src="/av-trade.png"
                 alt="AV Logo"
-                width={150}
-                height={40}
-                
+                width={35}
+                height={30}
+                className=" object-contain sm:mr-3 sm:w-[45px] sm:h-[45px]"
               />
+              {/* Company name (visible only on desktop) */}
+              {/* <span className="hidden md:inline-block text-3xl font-extrabold italic text-green-700 tracking-wide">
+                TRADE CORPORATION
+              </span> */}
             </Link>
           </span>
 
