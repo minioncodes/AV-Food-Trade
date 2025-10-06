@@ -80,8 +80,14 @@ const Header = () => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   const cart = useSelector((state: RootState) => state.cart.items);
-  const cartCount = useMemo(() => cart.reduce((sum, item) => sum + item.quantity, 0), [cart]);
-  const total = useMemo(() => cart.reduce((sum, item) => sum + item.price * item.quantity, 0), [cart]);
+  const cartCount = useMemo(
+    () => cart.reduce((sum, item) => sum + item.quantity, 0),
+    [cart]
+  );
+  const total = useMemo(
+    () => cart.reduce((sum, item) => sum + item.price * item.quantity, 0),
+    [cart]
+  );
 
   // debounce
   const [debouncedQ, setDebouncedQ] = useState(q);
@@ -147,7 +153,6 @@ const Header = () => {
   };
 
   return (
-
     <header className="sticky top-0 z-50 backdrop-blur-lg bg-white/80 border-b border-gray-200 shadow-sm">
       <PromoStrip />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -162,6 +167,10 @@ const Header = () => {
                 width={150}
                 height={50}
               />
+              {/* Company name (visible only on desktop) */}
+              {/* <span className="hidden md:inline-block text-3xl font-extrabold italic text-green-700 tracking-wide">
+                TRADE CORPORATION
+              </span> */}
             </Link>
           </span>
 
@@ -279,11 +288,11 @@ const Header = () => {
 
                               {/* Buy Now (force same size/styles on the inner button/anchor) */}
                               <button
-              onClick={handleCheckout}
-              className="h-8 px-3 rounded-md text-[12px] font-semibold bg-blue-500 text-white hover:bg-blue-700"
-            >
-              Checkout
-            </button>
+                                onClick={handleCheckout}
+                                className="h-8 px-3 rounded-md text-[12px] font-semibold bg-blue-500 text-white hover:bg-blue-700"
+                              >
+                                Checkout
+                              </button>
                             </div>
                           </div>
                         </li>
@@ -450,6 +459,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
-

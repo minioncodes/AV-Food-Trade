@@ -49,7 +49,6 @@ const Hero = () => {
     <section className="relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center py-10 lg:py-28">
-          {/* Text Section */}
           <div className="w-full lg:w-2/5 relative z-10">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-green-800 leading-tight drop-shadow-sm">
               Fresh Dry Fruits & Groceries <br />
