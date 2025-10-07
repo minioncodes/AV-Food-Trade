@@ -7,6 +7,7 @@ import { dummyProducts } from "@/app/data/DummyProducts";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/redux/store";
 import { addToCart } from "@/redux/slices/user-slice/cartSlice";
+import Link from "next/link";
 
 export default function ProductsList() {
   const dispatch = useDispatch();
@@ -59,12 +60,20 @@ export default function ProductsList() {
           >
             {/* Product Image */}
             <div className="relative w-full h-56 bg-gray-50">
-              <Image
+              {/* <Image
                 src={product.images?.[0] || "/placeholder.png"}
                 alt={product.name}
                 fill
                 className="object-cover"
-              />
+              /> */}
+              <Link href={`/product/${product._id}`} className="block">
+  <Image
+    src={product.images?.[0] || "/placeholder.png"}
+    alt={product.name}
+    fill
+    className="object-cover"
+  />
+</Link>
               {product.isFeatured && (
                 <span className="absolute top-2 left-2 text-white text-xs px-3 py-1 rounded-full bg-gradient-to-r from-indigo-600 to-pink-500 shadow-md">
                   Featured
