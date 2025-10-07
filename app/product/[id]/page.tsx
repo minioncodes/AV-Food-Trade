@@ -7,6 +7,7 @@ import { FaStar } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/redux/slices/user-slice/cartSlice";
 import { useState, useMemo } from "react";
+import TestimonialsSection from "@/components/user/Testimonials";
 
 export default function ProductDetailPage() {
   const { id } = useParams();
@@ -234,45 +235,65 @@ export default function ProductDetailPage() {
 
           {/* Review List */}
           <div className="md:w-2/3">
-            {[...Array(4)].map((_, i) => (
-              <div
-                key={i}
-                className="border-b py-4 flex flex-col md:flex-row gap-4"
-              >
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-700 font-bold">
-                  {["E", "C", "W", "O"][i]}
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-800">
-                    {["Archita", "Anshika", "Aradhya", "Anamika"][i]}
-                  </h4>
-                  <div className="flex items-center gap-1 mb-1">
-                    {[...Array(5)].map((_, j) => (
-                      <FaStar
-                        key={j}
-                        size={14}
-                        className="text-yellow-400 fill-yellow-400"
-                      />
-                    ))}
-                  </div>
-                  <p className="text-gray-600 text-sm">
-                    Excellent product! Great freshness and packaging.
-                  </p>
-                  <div className="flex gap-2 mt-3">
-                    <Image
-                      src={product.images?.[0] || "/placeholder.png"}
-                      alt="review"
-                      width={70}
-                      height={70}
-                      className="rounded-lg object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
+  {product.ratings && product.ratings.length > 0 ? (
+    product.ratings.map((review, i) => (
+      <div
+        key={i}
+        className="border-b py-4 flex flex-col md:flex-row gap-4"
+      >
+        {/* Initials Circle */}
+        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-700 font-bold text-lg">
+          {review.userName?.charAt(0).toUpperCase() || "U"}
+        </div>
+
+        {/* Review Content */}
+        <div className="flex-1">
+          <h4 className="font-semibold text-gray-800">
+            {review.userName}
+          </h4>
+
+          {/* Star Ratings */}
+          <div className="flex items-center gap-1 mb-1">
+            {[...Array(5)].map((_, j) => (
+              <FaStar
+                key={j}
+                size={14}
+                className={
+                  j < review.rating
+                    ? "text-yellow-400 fill-yellow-400"
+                    : "text-gray-300"
+                }
+              />
             ))}
+          </div>
+
+          {/* Comment */}
+          <p className="text-gray-600 text-sm">{review.comment}</p>
+
+          {/* Date */}
+          <p className="text-gray-400 text-xs mt-1">{review.date}</p>
+
+          {/* Optional image (product reference) */}
+          <div className="flex gap-2 mt-3">
+            <Image
+              src={product.images?.[0] || "/placeholder.png"}
+              alt={product.name}
+              width={70}
+              height={70}
+              className="rounded-lg object-cover"
+            />
           </div>
         </div>
       </div>
+    ))
+  ) : (
+    <p className="text-gray-500 italic">No reviews yet for this product.</p>
+  )}
+</div>
+
+        </div>
+      </div>
+      <TestimonialsSection/>
     </section>
   );
 }
