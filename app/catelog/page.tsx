@@ -1,11 +1,12 @@
 "use client";
 
-import { useDispatch } from "react-redux";
-import { addToCart } from "@/redux/slices/user-slice/cartSlice";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 import CheckoutButton from "@/components/checkout/CheckoutButton";
 import { dummyProducts } from "@/app/data/DummyProducts";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "@/redux/store";
+import { addToCart} from "@/redux/slices/user-slice/cartSlice";
 
 
 
@@ -13,6 +14,28 @@ import { dummyProducts } from "@/app/data/DummyProducts";
 
 export default function ProductsList() {
   const dispatch = useDispatch();
+   const cart = useSelector((state: RootState) => state.cart.items);
+
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  const handleCheckout = () => {
+    const phoneNumber = "917880561870"; // ✅ Replace with your WhatsApp number (no +, no spaces)
+
+    const itemsList = cart
+      .map(
+        (item, i) =>
+          `${i + 1}. ${item.name} (x${item.quantity}) - $${(
+            item.price * item.quantity
+          ).toFixed(2)}`
+      )
+      .join("%0A"); // line break in WhatsApp
+
+    const message = `Hello, I’d like to place an order 🛒%0A%0AItems:%0A${itemsList}%0A%0ATotal: $${total.toFixed(
+      2
+    )}%0A%0ALink: https://avtradecorp.com/user/cart`;
+
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  };
 
   return (
     <>
@@ -111,9 +134,12 @@ export default function ProductsList() {
                 </button>
 
                 {product.stock > 0 && (
-                  <div>
-                    <CheckoutButton amount={product.price} />
-                  </div>
+                  <button
+                    onClick={handleCheckout}
+                    className="px-3 py-2 text-base font-semibold rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition"
+                  >
+                    Buy Now
+                  </button>
                 )}
               </div>
             </div>

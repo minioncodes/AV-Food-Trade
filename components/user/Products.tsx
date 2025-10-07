@@ -1,11 +1,12 @@
 "use client";
 
-import { useDispatch } from "react-redux";
-import { addToCart } from "@/redux/slices/user-slice/cartSlice";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { dummyProducts } from "@/app/data/DummyProducts";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "@/redux/store";
+import { addToCart} from "@/redux/slices/user-slice/cartSlice";
 
 export default function ProductsList() {
   const dispatch = useDispatch();
@@ -13,6 +14,30 @@ export default function ProductsList() {
 
   // only first 8 products
   const displayedProducts = dummyProducts.slice(0, 8);
+
+   const cart = useSelector((state: RootState) => state.cart.items);
+
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  const handleCheckout = () => {
+    const phoneNumber = "917880561870"; // ✅ Replace with your WhatsApp number (no +, no spaces)
+
+    const itemsList = cart
+      .map(
+        (item, i) =>
+          `${i + 1}. ${item.name} (x${item.quantity}) - $${(
+            item.price * item.quantity
+          ).toFixed(2)}`
+      )
+      .join("%0A"); // line break in WhatsApp
+
+    const message = `Hello, I’d like to place an order 🛒%0A%0AItems:%0A${itemsList}%0A%0ATotal: $${total.toFixed(
+      2
+    )}%0A%0ALink: https://avtradecorp.com/user/cart`;
+
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  };
+
 
   return (
     <section className="p-6 max-w-7xl mx-auto mt-10">
@@ -109,7 +134,7 @@ export default function ProductsList() {
 
                 {product.stock > 0 && (
                   <button
-                    onClick={() => router.push("/user/catelog")}
+                    onClick={handleCheckout}
                     className="px-3 py-2 text-base font-semibold rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition"
                   >
                     Buy Now
