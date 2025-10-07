@@ -6,38 +6,34 @@ import { useRouter } from "next/navigation";
 import { dummyProducts } from "@/app/data/DummyProducts";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/redux/store";
-import { addToCart} from "@/redux/slices/user-slice/cartSlice";
+import { addToCart } from "@/redux/slices/user-slice/cartSlice";
 
 export default function ProductsList() {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  // only first 8 products
+  // Only show first 8 products
   const displayedProducts = dummyProducts.slice(0, 8);
 
-   const cart = useSelector((state: RootState) => state.cart.items);
-
+  const cart = useSelector((state: RootState) => state.cart.items);
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   const handleCheckout = () => {
-    const phoneNumber = "917880561870"; // ✅ Replace with your WhatsApp number (no +, no spaces)
-
+    const phoneNumber = "917880561870";
     const itemsList = cart
       .map(
         (item, i) =>
-          `${i + 1}. ${item.name} (x${item.quantity}) - $${(
+          `${i + 1}. ${item.name} (x${item.quantity}) - ₹${(
             item.price * item.quantity
           ).toFixed(2)}`
       )
-      .join("%0A"); // line break in WhatsApp
-
-    const message = `Hello, I’d like to place an order 🛒%0A%0AItems:%0A${itemsList}%0A%0ATotal: $${total.toFixed(
+      .join("%0A");
+    const message = `Hello, I’d like to place an order 🛒%0A%0AItems:%0A${itemsList}%0A%0ATotal: ₹${total.toFixed(
       2
     )}%0A%0ALink: https://avtradecorp.com/user/cart`;
 
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
-
 
   return (
     <section className="p-6 max-w-7xl mx-auto mt-10">
@@ -45,12 +41,21 @@ export default function ProductsList() {
         Featured Products
       </h1>
 
-      {/* --- Product Grid (2 rows of 4) --- */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* 🟢 Grid on Desktop / Carousel on Mobile */}
+      <div
+        className="
+          flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory scrollbar-hide
+          sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible
+        "
+      >
         {displayedProducts.map((product) => (
           <div
             key={product._id}
-            className="rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+            className="
+              snap-center flex-shrink-0 w-[80%] sm:w-auto
+              rounded-2xl shadow-md border border-gray-100 overflow-hidden
+              hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col
+            "
           >
             {/* Product Image */}
             <div className="relative w-full h-56 bg-gray-50">
@@ -146,7 +151,7 @@ export default function ProductsList() {
         ))}
       </div>
 
-      {/* --- View All Button --- */}
+      {/* View All Button */}
       <div className="text-center mt-10">
         <button
           onClick={() => router.push("/catelog")}
