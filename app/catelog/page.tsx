@@ -7,6 +7,7 @@ import { dummyProducts } from "@/app/data/DummyProducts";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/redux/store";
 import { addToCart} from "@/redux/slices/user-slice/cartSlice";
+import Link from "next/link";
 
 
 
@@ -53,12 +54,14 @@ export default function ProductsList() {
           >
           
             <div className="relative w-full h-64 bg-gray-50">
-              <Image
-                src={product.images?.[0] }
-                alt={product.name}
-                fill
-                className="object-cover"
-              />
+              <Link href={`/product/${product._id}`} className="block">
+  <Image
+    src={product.images?.[0] || "/placeholder.png"}
+    alt={product.name}
+    fill
+    className="object-cover"
+  />
+</Link>
               {product.isFeatured && (
                 <span className="absolute top-2 left-2 text-white text-xs px-3 py-1 rounded-full bg-gradient-to-r from-indigo-600 to-pink-500 shadow-md">
                   Featured
@@ -67,12 +70,12 @@ export default function ProductsList() {
             </div>
 
             <div className="p-5 flex flex-col flex-grow space-y-3">
-              <h2 className="text-lg font-semibold text-gray-900 truncate">
+              <Link href={`/product/${product._id}`}  className="text-lg font-semibold text-gray-900 truncate">
                 {product.name}
-              </h2>
-              <p className="text-sm text-gray-600 line-clamp-2">
+              </Link >
+              <Link href={`/product/${product._id}`} className="text-sm text-gray-600 line-clamp-2">
                 {product.description}
-              </p>
+              </Link>
 
               <div className="flex items-center space-x-1">
                 {[...Array(5)].map((_, i) => (

@@ -83,12 +83,12 @@ export default function ProductsList() {
 
             {/* Product Info */}
             <div className="p-5 flex flex-col flex-grow space-y-3">
-              <h2 className="text-lg font-semibold text-gray-900 truncate">
+              <Link href={`/product/${product._id}`}  className="text-lg font-semibold text-gray-900 truncate">
                 {product.name}
-              </h2>
-              <p className="text-sm text-gray-600 line-clamp-2">
+              </Link >
+              <Link href={`/product/${product._id}`} className="text-sm text-gray-600 line-clamp-2">
                 {product.description}
-              </p>
+              </Link>
 
               {/* Ratings */}
               <div className="flex items-center space-x-1">

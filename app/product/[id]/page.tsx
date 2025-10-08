@@ -7,7 +7,6 @@ import { FaStar } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/redux/slices/user-slice/cartSlice";
 import { useState, useMemo } from "react";
-import TestimonialsSection from "@/components/user/Testimonials";
 
 export default function ProductDetailPage() {
   const { id } = useParams();
@@ -187,8 +186,8 @@ export default function ProductDetailPage() {
               }
               className={`flex-1 py-3 text-lg font-semibold rounded-xl text-white transition ${
                 product.stock > 0
-                  ? "bg-blue-600 hover:bg-blue-700"
-                  : "text-white cursor-not-allowed"
+                  ? "bg-green-600 hover:bg-green-700"
+                  : "bg-gray-400 cursor-not-allowed"
               }`}
             >
               Add to Cart
@@ -196,7 +195,7 @@ export default function ProductDetailPage() {
 
             <button
               onClick={handleBuyNow}
-              className="flex-1 py-3 text-lg font-semibold rounded-xl text-white bg-yellow-500 hover:bg-yellow-600 transition"
+              className="flex-1 py-3 text-lg font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition"
             >
               Buy Now
             </button>
