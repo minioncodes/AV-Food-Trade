@@ -290,8 +290,68 @@ export default function ProductDetailPage() {
   )}
 </div>
 
+
         </div>
       </div>
+      {/* 🛒 Recommended Products */}
+<div className="mt-20 border-t pt-10">
+  <h2 className="text-2xl font-bold mb-8 text-gray-900 text-center">
+    Recommended Products
+  </h2>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {dummyProducts
+      .filter((p) => p._id !== product._id) // exclude current product
+      .sort(() => Math.random() - 0.5) // shuffle
+      .slice(0, 3) // only 3 recommended
+      .map((rec) => (
+        <div
+          key={rec._id}
+          onClick={() => (window.location.href = `/product/${rec._id}`)}
+          className="cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl border border-gray-100 transition-all hover:-translate-y-1 bg-white"
+        >
+          {/* Image */}
+          <div className="relative w-full h-52 bg-gray-50">
+            <Image
+              src={rec.images?.[0] || "/placeholder.png"}
+              alt={rec.name}
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          {/* Info */}
+          <div className="p-5 flex flex-col">
+            <h3 className="text-lg font-semibold text-gray-900 truncate">
+              {rec.name}
+            </h3>
+            <p className="text-sm text-gray-600 line-clamp-2 mb-2">
+              {rec.description}
+            </p>
+            <div className="flex items-center justify-between">
+              <span className="text-green-700 font-bold text-lg">
+                ₹{rec.price}
+              </span>
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <FaStar
+                    key={i}
+                    size={14}
+                    className={
+                      i < Math.round(rec.averageRating)
+                        ? "text-yellow-400 fill-yellow-400"
+                        : "text-gray-300"
+                    }
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+  </div>
+</div>
+
     </section>
   );
 }
