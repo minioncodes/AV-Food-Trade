@@ -293,7 +293,6 @@ export default function ProductDetailPage() {
 
         </div>
       </div>
-      <TestimonialsSection/>
     </section>
   );
 }

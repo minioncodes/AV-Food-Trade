@@ -68,7 +68,7 @@ export const dummyProducts: Product[] = [
     _id: "df2",
     name: "Organic Cashews (250g)",
     description: "Whole, creamy cashews for snacking or cooking.",
-    price: 420,
+    price: 400,
     stock: 80,
     images: [
       "https://media.istockphoto.com/id/2212600938/photo/close-up-view-of-fresh-organic-cashews-in-a-bowl-shot-on-rustic-table.webp?a=1&b=1&s=612x612&w=0&k=20&c=QMMcT6HVeatdKIbgc3okEGehTqsAoPX9v3SUWzhd9dc="
