@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
-import CheckoutButton from "@/components/checkout/CheckoutButton";
 import { dummyProducts } from "@/app/data/DummyProducts";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/redux/store";
@@ -25,13 +24,13 @@ export default function ProductsList() {
     const itemsList = cart
       .map(
         (item, i) =>
-          `${i + 1}. ${item.name} (x${item.quantity}) - $${(
+          `${i + 1}. ${item.name} (x${item.quantity}) - ₹${(
             item.price * item.quantity
           ).toFixed(2)}`
       )
       .join("%0A"); // line break in WhatsApp
 
-    const message = `Hello, I’d like to place an order 🛒%0A%0AItems:%0A${itemsList}%0A%0ATotal: $${total.toFixed(
+    const message = `Hello, I’d like to place an order 🛒%0A%0AItems:%0A${itemsList}%0A%0ATotal: ₹${total.toFixed(
       2
     )}%0A%0ALink: https://avtradecorp.com/user/cart`;
 
