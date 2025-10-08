@@ -187,8 +187,8 @@ export default function ProductDetailPage() {
               }
               className={`flex-1 py-3 text-lg font-semibold rounded-xl text-white transition ${
                 product.stock > 0
-                  ? "bg-green-600 hover:bg-green-700"
-                  : "bg-gray-400 cursor-not-allowed"
+                  ? "bg-blue-600 hover:bg-blue-700"
+                  : "text-white cursor-not-allowed"
               }`}
             >
               Add to Cart
