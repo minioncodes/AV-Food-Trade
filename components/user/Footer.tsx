@@ -23,7 +23,7 @@ export default function Footer() {
           </p>
           <div className="flex gap-4 mt-6">
             <Link href="https://www.facebook.com/avtradecorp/" className="hover:text-white"><FaFacebook size={22} /></Link>
-            <Link href="https://www.facebook.com/avtradecorp/" className="hover:text-white"><FaInstagram size={22} /></Link>
+            <Link href="https://www.instagram.com/avtradecorp/" className="hover:text-white"><FaInstagram size={22} /></Link>
           </div>
         </div>
 
