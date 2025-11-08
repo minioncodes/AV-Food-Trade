@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaInstagram} from "react-icons/fa";
 import Newsletter from "./NewsLetter";
 import Image from "next/image";
 
@@ -22,10 +22,8 @@ export default function Footer() {
             Premium groceries and dry fruits delivered fresh to your door.
           </p>
           <div className="flex gap-4 mt-6">
-            <Link href="#" className="hover:text-white"><FaFacebook size={22} /></Link>
-            <Link href="#" className="hover:text-white"><FaTwitter size={22} /></Link>
-            <Link href="#" className="hover:text-white"><FaInstagram size={22} /></Link>
-            <Link href="#" className="hover:text-white"><FaLinkedin size={22} /></Link>
+            <Link href="https://www.facebook.com/avtradecorp/" className="hover:text-white"><FaFacebook size={22} /></Link>
+            <Link href="https://www.facebook.com/avtradecorp/" className="hover:text-white"><FaInstagram size={22} /></Link>
           </div>
         </div>
 
