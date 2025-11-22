@@ -114,7 +114,7 @@ export default function AboutPage() {
             Lucknow – 226001, Uttar Pradesh, India
           </p>
           <p className="text-gray-700 leading-relaxed">
-            📞 <span className="font-semibold">Phone:</span> +91-9876543210
+            📞 <span className="font-semibold">Phone:</span> +91-7880561870
           </p>
           <p className="text-gray-700 leading-relaxed">
             📧 <span className="font-semibold">Email:</span>{" "}
