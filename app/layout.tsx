@@ -69,12 +69,12 @@ export default function RootLayout({
     <html lang="en">
       {/* <body>
         <Providers>
-          {/* <PromoStrip /> */}
+          
           <Header />
           {children}
           <Footer />
         </Providers>
-      </body> */}
+      </body>  */}
     </html>
   );
 }
