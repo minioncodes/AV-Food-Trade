@@ -67,14 +67,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* <body>
+      <body>
         <Providers>
           
           <Header />
           {children}
           <Footer />
         </Providers>
-      </body>  */}
+      </body> 
     </html>
   );
 }
