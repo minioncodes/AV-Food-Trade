@@ -1,45 +1,45 @@
-"use client";
+// "use client";
 
-import Hero from "@/components/user/Hero";
-import WhyChooseUsSection from "@/components/user/WhyChose";
-import BulkDealsSection from "@/components/user/BulkDeals";
-import TestimonialsSection from "@/components/user/Testimonials";
-import ShopByCategorySection from "@/components/user/Categories";
-import RevealOnScroll from "@/components/user/RevealOnScroll";
-import ProductsList from "@/components/user/Products";
-
-
+// import Hero from "@/components/user/Hero";
+// import WhyChooseUsSection from "@/components/user/WhyChose";
+// import BulkDealsSection from "@/components/user/BulkDeals";
+// import TestimonialsSection from "@/components/user/Testimonials";
+// import ShopByCategorySection from "@/components/user/Categories";
+// import RevealOnScroll from "@/components/user/RevealOnScroll";
+// import ProductsList from "@/components/user/Products";
 
 
-export default function Home() {
-  return (
-    <>
-      <section className="bg-gradient-to-br from-amber-50 via-white to-green-50">
 
-        <RevealOnScroll direction="right" delay={0.3}>
-          <Hero />
-        </RevealOnScroll>
 
-        <RevealOnScroll direction="up" delay={0.5}>
-          <ShopByCategorySection />
-        </RevealOnScroll>
+// export default function Home() {
+//   return (
+//     <>
+//       <section className="bg-gradient-to-br from-amber-50 via-white to-green-50">
 
-    
-        <ProductsList />
+//         <RevealOnScroll direction="right" delay={0.3}>
+//           <Hero />
+//         </RevealOnScroll>
+
+//         <RevealOnScroll direction="up" delay={0.5}>
+//           <ShopByCategorySection />
+//         </RevealOnScroll>
 
     
-        <RevealOnScroll direction="right" delay={0.3}>
-          <WhyChooseUsSection />
-        </RevealOnScroll>
+//         <ProductsList />
 
-        <RevealOnScroll direction="down" delay={0.2}>
-          <BulkDealsSection />
-        </RevealOnScroll>
+    
+//         <RevealOnScroll direction="right" delay={0.3}>
+//           <WhyChooseUsSection />
+//         </RevealOnScroll>
+
+//         <RevealOnScroll direction="down" delay={0.2}>
+//           <BulkDealsSection />
+//         </RevealOnScroll>
 
 
-          <TestimonialsSection />
+//           <TestimonialsSection />
         
-      </section>
-    </>
-  );
-}
+//       </section>
+//     </>
+//   );
+// }
