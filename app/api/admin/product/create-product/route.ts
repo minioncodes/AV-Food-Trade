@@ -6,8 +6,6 @@ import { AdminPayload } from "../../category/create-category/route";
 import { upladProductImageToCloudinary } from "@/utils/cloudinary/product_cloudinary";
 import mongoose from "mongoose";
 
-console.log("create product route is called");
-
 export async function POST(req: NextRequest) {
   try {
     await dbConnect();

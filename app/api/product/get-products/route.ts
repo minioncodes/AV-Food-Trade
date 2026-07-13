@@ -2,8 +2,6 @@ import { NextResponse } from "next/server";
 import connectDB from "@/lib/mongo";
 import ProductSchema from "@/models/admin/ProductSchema";
 
-console.log("get api route got called");
-
 export async function GET() {
   try {
     await connectDB();
